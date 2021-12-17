@@ -30,16 +30,18 @@ public class NoiseMapRenderer : MonoBehaviour
             for (int x = 0; x < map.GetLength(1); ++x)
             {
                 // Debug.Log($"{y}, {x}, {map[y, x]}");
+                int tbm = MapManager.tilesBeyoundMap;
+                int pit = MapManager.pixelsInTile;
                 switch (map[y, x])
                 {
                     case MAP_BORDER:
-                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / MapManager.pixelsInTile), y, 0), borderTile);
+                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - tbm - 2, y - height / 2 - tbm, 0), borderTile);
                         break;
                     case WALL:
-                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / MapManager.pixelsInTile), y, 0), wallTile);
+                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - tbm - 2, y - height / 2 - tbm, 0), wallTile);
                         break;
                     case FLOOR:
-                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / MapManager.pixelsInTile), y, 0), floorTile);
+                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - tbm - 2, y - height / 2 - tbm, 0), floorTile);
                         break;
                 }
             }

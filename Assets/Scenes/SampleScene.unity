@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 271239994}
   - component: {fileID: 271239990}
   - component: {fileID: 271239995}
+  - component: {fileID: 271239996}
   m_Layer: 0
   m_Name: NoiseMap
   m_TagString: Untagged
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f09ceacce917a4d88830bcfb0b6b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 50
+  width: 100
   height: 50
   offset: {x: 0, y: 0}
   seed: 1
@@ -310,15 +311,43 @@ Tilemap:
   m_Enabled: 1
   m_Tiles: {}
   m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
+  m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileMatrixArray:
+  - m_RefCount: 0
+    m_Data:
+      e00: 2.5244127e-29
+      e01: -2.0286229e+28
+      e02: -2.561665e-29
+      e03: -8.787624e-10
+      e10: 8.66e-43
+      e11: 4.5904e-41
+      e12: 8.67e-43
+      e13: 8.65e-43
+      e20: 6e-45
+      e21: -15662
+      e22: -15661.141
+      e23: -15661.141
+      e30: 0
+      e31: 1.81e-43
+      e32: 1.81e-43
+      e33: 1.81e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: -2.561665e-29, g: -2.561665e-29, b: -2.561665e-29, a: -2.561665e-29}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
+  m_Origin: {x: -4, y: -4, z: 0}
+  m_Size: {x: 7, y: 6, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -354,6 +383,18 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!156049354 &271239996
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271239989}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

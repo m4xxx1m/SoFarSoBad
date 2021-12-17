@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField] public static readonly int tilesBeyoundMap = 5;
+    [SerializeField] public static readonly int tilesBeyoundMap = 10;
     [SerializeField] public static readonly int pixelsInTile = 100; // Количество пикселей в одном блоке
 
     [SerializeField] private int width;
@@ -20,8 +20,9 @@ public class MapManager : MonoBehaviour
         GenerateMap();
     }
 
-    /*private void Update()
+    /*private void FixedUpdate()
     {
+        offset.x -= 10;
         GenerateMap();
     }*/
 

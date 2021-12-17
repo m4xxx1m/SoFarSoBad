@@ -100,7 +100,7 @@ public class NoiseMapGenerator
         float[,] map = new float[height + 2 * tbm, width + 2 * tbm];
         for (int i = 0; i < height + 2*tbm; ++i)
         {
-            for (int j = 0; j < height + 2 * tbm; ++j)
+            for (int j = 0; j < width + 2 * tbm; ++j)
             {
                 if (i < tbm || i >= height + tbm || j < tbm || j >= width + tbm)
                 {
