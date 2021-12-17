@@ -1,8 +1,33 @@
 using UnityEngine;
 
-public static class NoiseMapGenerator
+public class NoiseMapGenerator
 {
-    public static float[] GenerateNoiseMap(int width, int height, int seed, float scale, int octaves, float persistence, float lacunarity, Vector2 offset)
+    private int width;
+    private int height;
+    private Vector2 offset;
+
+    private float scale;
+    private int octaves;
+    private float persistence;
+    private float lacunarity;
+    private int seed;
+
+    public NoiseMapGenerator(int w, int h, Vector2 o, int s): this(w, h, o, 15, 4, 0.5f, 2f, s)
+    { }
+
+    public NoiseMapGenerator(int w, int h, Vector2 o, float sc, int oct, float p, float l, int s)
+    {
+        width = w;
+        height = h;
+        scale = sc;
+        octaves = oct;
+        persistence = p;
+        lacunarity = l;
+        seed = s;
+        offset = o;
+    }
+
+    public float[,] GenerateNoiseMap()
     {
         // Массив данных о вершинах, одномерный вид поможет избавиться от лишних циклов впоследствии
         float[] noiseMap = new float[width * height];
@@ -66,6 +91,29 @@ public static class NoiseMapGenerator
             }
         }
 
-        return noiseMap;
+        return TransformTo2DMap(noiseMap);
+    }
+
+    private float[,] TransformTo2DMap(float[] noiseMap)
+    {
+        int tbm = MapManager.tilesBeyoundMap;
+        float[,] map = new float[height + 2 * tbm, width + 2 * tbm];
+        for (int i = 0; i < height + 2*tbm; ++i)
+        {
+            for (int j = 0; j < height + 2 * tbm; ++j)
+            {
+                if (i < tbm || i >= height + tbm || j < tbm || j >= width + tbm)
+                {
+                    map[i, j] = -1.0f;
+                }
+                else
+                {
+                    int x = j - tbm;
+                    int y = i - tbm;
+                    map[i, j] = noiseMap[y * width + x];
+                }
+            }
+        }
+        return map;
     }
 }
