@@ -269,7 +269,7 @@ MonoBehaviour:
   borderTile: {fileID: 11400000, guid: c02881cc84cafe04ba89db67cf21d324, type: 2}
   wallTile: {fileID: 11400000, guid: aa89cb2464f14e0458cca71beb821ae3, type: 2}
   floorTile: {fileID: 11400000, guid: 7fbe0b0e92bafb54ea82ae7195fd7ae3, type: 2}
-  enemieTile: {fileID: 11400000, guid: d1cda4d48f7a2594ebd4efb8a567264f, type: 2}
+  enemieTile: {fileID: 11400000, guid: 27250446876a51a419bfb5abddce55f2, type: 2}
   chestTile: {fileID: 11400000, guid: e61d3c64e37cc7b4f936b5e480711f07, type: 2}
   gearTile: {fileID: 11400000, guid: ea115ba646e6f4045a1b708ea4ee2308, type: 2}
   grohogCellTile: {fileID: 11400000, guid: 9007608b22127a54aba7551af5416fe7, type: 2}
