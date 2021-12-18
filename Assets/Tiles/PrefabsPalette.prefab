@@ -43,15 +43,39 @@ Tilemap:
   m_Enabled: 1
   m_Tiles: {}
   m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
+  m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileMatrixArray:
+  - m_RefCount: 0
+    m_Data:
+      e00: -2.5244127e-29
+      e01: 1401624
+      e02: -9.36625e-29
+      e03: 0.000000001925189
+      e10: 8.83e-43
+      e11: 4.5904e-41
+      e12: 8.83e-43
+      e13: 8.83e-43
+      e20: 6e-45
+      e21: -1.9995751e+27
+      e22: -1.9994452e+27
+      e23: -1.9994452e+27
+      e30: 0
+      e31: 2.98e-43
+      e32: 2.98e-43
+      e33: 2.98e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: -9.36625e-29, g: -9.36625e-29, b: -9.36625e-29, a: -9.36625e-29}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
+  m_Origin: {x: -3, y: -1, z: 0}
+  m_Size: {x: 3, y: 6, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -175,6 +199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BadDude
       objectReference: {fileID: 0}
+    - target: {fileID: 1938129240293738708, guid: 63aea0e065ddec2409d36c4e9e161d5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 1938129240293738709, guid: 63aea0e065ddec2409d36c4e9e161d5e,
         type: 3}
       propertyPath: m_RootOrder
@@ -248,7 +277,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5155124363089882035}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8294603085201459803
+--- !u!114 &7700887318098235370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
