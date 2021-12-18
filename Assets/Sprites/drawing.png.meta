@@ -1,0 +1,732 @@
+fileFormatVersion: 2
+guid: 84ef70e869918264ab7c531ef87827c4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6343970333237045192
+    second: drawing_0
+  - first:
+      213: 1211334667980390345
+    second: drawing_1
+  - first:
+      213: 3333544748261787210
+    second: drawing_2
+  - first:
+      213: 8287690918416318667
+    second: drawing_3
+  - first:
+      213: -2610156647075194302
+    second: drawing_4
+  - first:
+      213: -4486198147670404827
+    second: drawing_6
+  - first:
+      213: -5256211908863162309
+    second: drawing_8
+  - first:
+      213: -5373832983511038875
+    second: drawing_9
+  - first:
+      213: 5525777406347037389
+    second: drawing_10
+  - first:
+      213: 6910523827923524054
+    second: drawing_11
+  - first:
+      213: -2437595858656387390
+    second: drawing_12
+  - first:
+      213: 493391732581285536
+    second: drawing_13
+  - first:
+      213: 8418591445056159535
+    second: drawing_14
+  - first:
+      213: -4751144663908913882
+    second: drawing_15
+  - first:
+      213: 579640940821348970
+    second: drawing_16
+  - first:
+      213: 9065949076467934306
+    second: drawing_17
+  - first:
+      213: -6503944615817980763
+    second: drawing_18
+  - first:
+      213: -1682847147117305062
+    second: drawing_19
+  - first:
+      213: 455460397313656611
+    second: drawing_20
+  - first:
+      213: -134680852744515668
+    second: drawing_21
+  - first:
+      213: 8032248806178516936
+    second: drawing_22
+  - first:
+      213: 651675140673926915
+    second: drawing_23
+  - first:
+      213: 1338353843971655103
+    second: drawing_24
+  - first:
+      213: -5307066339852414855
+    second: drawing_25
+  - first:
+      213: 6247684300796669842
+    second: drawing_26
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: drawing_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 620
+        width: 126
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7e532086f4a0850800000000000000
+      internalID: 6343970333237045192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 620
+        width: 127
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf361d66768fc010800000000000000
+      internalID: 1211334667980390345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_2
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 727
+        width: 39
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4643036941234e20800000000000000
+      internalID: 3333544748261787210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 727
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc08f60fafac30370800000000000000
+      internalID: 8287690918416318667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_4
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 620
+        width: 107
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a55f2db5cd6cbd0800000000000000
+      internalID: -2610156647075194302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_6
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 620
+        width: 108
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5211718bd82ddb1c0800000000000000
+      internalID: -4486198147670404827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 471
+        width: 82
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3888041e1f2e07b0800000000000000
+      internalID: -5256211908863162309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 471
+        width: 82
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5640c8f8f5f4c65b0800000000000000
+      internalID: -5373832983511038875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_10
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 476
+        width: 82
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcac13536418fac40800000000000000
+      internalID: 5525777406347037389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_11
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 476
+        width: 82
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d91147decc17ef50800000000000000
+      internalID: 6910523827923524054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_12
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 470
+        width: 73
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce92d24b7beb2ed0800000000000000
+      internalID: -2437595858656387390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_13
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 470
+        width: 74
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae3f9baa21e8d600800000000000000
+      internalID: 493391732581285536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_14
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 470
+        width: 76
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ff6bfc058d4d470800000000000000
+      internalID: 8418591445056159535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_15
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 470
+        width: 76
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d673fc91b801eb0800000000000000
+      internalID: -4751144663908913882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_16
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 314
+        width: 82
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a620ee65d5c4b0800800000000000000
+      internalID: 579640940821348970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_17
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 314
+        width: 82
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264e6aec6a8b0dd70800000000000000
+      internalID: 9065949076467934306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_18
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 318
+        width: 82
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4da5fc4d85db5a0800000000000000
+      internalID: -6503944615817980763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_19
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 318
+        width: 82
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a132bc09f6355a8e0800000000000000
+      internalID: -1682847147117305062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_20
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 313
+        width: 73
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327832771de125600800000000000000
+      internalID: 455460397313656611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_21
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 313
+        width: 74
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafcd1e5a74812ef0800000000000000
+      internalID: -134680852744515668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_22
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 313
+        width: 73
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf63d78bb7487f60800000000000000
+      internalID: 8032248806178516936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_23
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 313
+        width: 73
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30772d476173b0900800000000000000
+      internalID: 651675140673926915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 175
+        width: 160
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb585bdeab9c29210800000000000000
+      internalID: 1338353843971655103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_25
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 246
+        width: 80
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9701aad28438956b0800000000000000
+      internalID: -5307066339852414855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawing_26
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 246
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f25c915cb34b650800000000000000
+      internalID: 6247684300796669842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
