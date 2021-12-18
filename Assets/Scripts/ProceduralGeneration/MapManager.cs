@@ -85,7 +85,7 @@ public class MapManager : MonoBehaviour
     private void GenerateMap(int chunkNum)
     {
         Vector2 offset = new Vector2(chunkNum * width * pixelsInTile, 0);
-        mapGenerator = new NoiseMapGenerator(width, height, new Vector2(offset.x / pixelsInTile, offset.y / pixelsInTile), seed);
+        mapGenerator = new NoiseMapGenerator(width, height, new Vector2(chunkNum * width, 0), seed);
         int[,] wallsMap = mapGenerator.GenerateNoiseMap();
 
         int[,] itemMap = new int[wallsMap.GetLength(0), wallsMap.GetLength(1)];
