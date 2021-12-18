@@ -12,6 +12,8 @@ public class NoiseMapGenerator
     private float lacunarity;
     private int seed;
 
+    [SerializeField] private float level = 0.5f; // от 0 до 1, значения больше этого уровня создают блок
+
     public NoiseMapGenerator(int w, int h, Vector2 o, int s): this(w, h, o, 15, 4, 0.5f, 2f, s)
     { }
 
@@ -27,7 +29,7 @@ public class NoiseMapGenerator
         offset = o;
     }
 
-    public float[,] GenerateNoiseMap()
+    public int[,] GenerateNoiseMap()
     {
         // Массив данных о вершинах, одномерный вид поможет избавиться от лишних циклов впоследствии
         float[] noiseMap = new float[width * height];
@@ -91,29 +93,54 @@ public class NoiseMapGenerator
             }
         }
 
-        return TransformTo2DMap(noiseMap);
+        return GenerateWallsMap(width, height, TransformTo2DMap(noiseMap));
     }
 
     private float[,] TransformTo2DMap(float[] noiseMap)
     {
         int tbm = MapManager.tilesBeyoundMap;
-        float[,] map = new float[height + 2 * tbm, width + 2 * tbm];
+        float[,] map = new float[height + 2 * tbm, width];
         for (int i = 0; i < height + 2*tbm; ++i)
         {
-            for (int j = 0; j < width + 2 * tbm; ++j)
+            for (int j = 0; j < width; ++j)
             {
-                if (i < tbm || i >= height + tbm || j < tbm || j >= width + tbm)
+                if (i < tbm || i >= height + tbm)
                 {
                     map[i, j] = -1.0f;
                 }
                 else
                 {
-                    int x = j - tbm;
+                    int x = j;
                     int y = i - tbm;
                     map[i, j] = noiseMap[y * width + x];
                 }
             }
         }
         return map;
+    }
+
+    private int[,] GenerateWallsMap(int width, int height, float[,] noiseMap)
+    {
+        int tbm = MapManager.tilesBeyoundMap;
+        int[,] tileMap = new int[height + 2 * tbm, width];
+        for (int i = 0; i < height + 2 * tbm; ++i)
+        {
+            for (int j = 0; j < width; ++j)
+            {
+                if (noiseMap[i, j] == -1.0f)
+                {
+                    tileMap[i, j] = MapManager.MAP_BORDER;
+                }
+                else if (noiseMap[i, j] >= level)
+                {
+                    tileMap[i, j] = MapManager.WALL;
+                }
+                else
+                {
+                    tileMap[i, j] = MapManager.FLOOR;
+                }
+            }
+        }
+        return tileMap;
     }
 }
