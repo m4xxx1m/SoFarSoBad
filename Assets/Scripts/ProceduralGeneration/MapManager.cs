@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    public static MapManager instance;
+
     [SerializeField] public const int tilesBeyoundMap = 10;
     [SerializeField] public const int pixelsInTile = 100; //  оличество пикселей в одном блоке
     [SerializeField] public const int freeSpaceForSpawn = 5;
@@ -17,6 +19,11 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private NoiseMapGenerator mapGenerator;
     [SerializeField] private NoiseMapRenderer mapRenderer;
+
+    public static MapManager GetInstance()
+    {
+        return instance;
+    }
 
     /*
      * 0 - враги
@@ -42,6 +49,7 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < chunkNumArray.Length; ++i)
             GenerateMap(chunkNumArray[i]);
         FreeSpaceForSpawn();
+        instance = this;
     }
 
     /*private void FixedUpdate()
@@ -58,16 +66,16 @@ public class MapManager : MonoBehaviour
     public void SetCoordinates(Vector2 coordinates)
     {
         float x = coordinates.x;
-        if (x > width * pixelsInTile)
+        if (x > width)
         {
-            if (x > (chunkNumArray[1] + 0.5f) * width * pixelsInTile)
+            if (x > (chunkNumArray[1] + 0.5f) * width)
             {
                 RemoveMap(chunkNumArray[0]);
                 chunkNumArray[0] = chunkNumArray[1];
                 chunkNumArray[1] = chunkNumArray[1] + 1;
                 GenerateMap(chunkNumArray[1]);
             }
-            else if (x < (chunkNumArray[0] + 0.5f) * width * pixelsInTile)
+            else if (x < (chunkNumArray[0] + 0.5f) * width)
             {
                 RemoveMap(chunkNumArray[1]);
                 chunkNumArray[1] = chunkNumArray[0];

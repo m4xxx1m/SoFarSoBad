@@ -60,5 +60,7 @@ public class Movement : MonoBehaviour
             if(dashTimer < dashTime)
                 rb.MovePosition(rb.position + input.normalized * dashSpeed * Time.fixedDeltaTime);
         }
+
+        MapManager.GetInstance().SetCoordinates(rb.position);
     }
 }
