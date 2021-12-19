@@ -15,10 +15,6 @@ public class NoiseMapRenderer : MonoBehaviour
 
     private Tilemap tilemap;
 
-    //private const int MAP_BORDER = 0;
-    //private const int WALL = 1;
-    //private const int FLOOR = 2;
-
     public void RenderMap(int width, int height, int[,] wallsMap, int[,] itemMap, Vector2 coordinates)
     {
         ApplyMap(width, height, wallsMap, itemMap, coordinates);
@@ -75,8 +71,8 @@ public class NoiseMapRenderer : MonoBehaviour
         {
             for (int x = 0; x < width; ++x)
             {
-                tilemap.SetTile(new Vector3Int(chunkNum * width + x, y - height / 2, 0), null);
-                tilemap.SetTile(new Vector3Int(chunkNum * width + x, y - height / 2, -1), null);
+                tilemap.SetTile(new Vector3Int(chunkNum * width + x - 2, y - height / 2, 0), null);
+                tilemap.SetTile(new Vector3Int(chunkNum * width + x - 2, y - height / 2, -1), null);
             }
         }
     }

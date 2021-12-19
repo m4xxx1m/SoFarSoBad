@@ -14,7 +14,7 @@ public class NoiseMapGenerator
 
     [SerializeField] private float level = 0.5f; // от 0 до 1, значения больше этого уровня создают блок
 
-    public NoiseMapGenerator(int w, int h, Vector2 o, int s): this(w, h, o, 15, 4, 0.5f, 2f, s)
+    public NoiseMapGenerator(int w, int h, Vector2 o, int s): this(w, h, o, 15f, 4, 0.5f, 2f, s)
     { }
 
     public NoiseMapGenerator(int w, int h, Vector2 o, float sc, int oct, float p, float l, int s)
@@ -42,8 +42,8 @@ public class NoiseMapGenerator
         for (int i = 0; i < octaves; i++)
         {
             // Учитываем внешний сдвиг положения
-            float xOffset = rand.Next(-100000, 100000) + offset.x;
-            float yOffset = rand.Next(-100000, 100000) + offset.y;
+            float xOffset = rand.Next(-100000, 100000);
+            float yOffset = rand.Next(-100000, 100000);
             octavesOffset[i] = new Vector2(xOffset / width, yOffset / height);
         }
 
@@ -54,7 +54,7 @@ public class NoiseMapGenerator
 
         // Учитываем половину ширины и высоты, для более визуально приятного изменения масштаба
         float halfWidth = width / 2f;
-        float halfHeight = height / 2f;
+        float halfHeight =  height / 2f;
 
         // Генерируем точки на карте высот
         for (int y = 0; y < height; y++)
@@ -71,7 +71,7 @@ public class NoiseMapGenerator
                 for (int i = 0; i < octaves; i++)
                 {
                     // Рассчитываем координаты для получения значения из Шума Перлина
-                    float xResult = (x - halfWidth) / scale * frequency + octavesOffset[i].x * frequency;
+                    float xResult = (x - halfWidth + offset.x) / scale * frequency + octavesOffset[i].x * frequency;
                     float yResult = (y - halfHeight) / scale * frequency + octavesOffset[i].y * frequency;
 
                     // Получение высоты из ГСПЧ
