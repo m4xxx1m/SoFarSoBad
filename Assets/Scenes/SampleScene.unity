@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 271239996}
   m_Layer: 0
   m_Name: NoiseMap
-  m_TagString: Untagged
+  m_TagString: TileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7382,7 +7382,7 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7569,6 +7569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dude
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612806441991720401, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7612806442096704096, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
         type: 3}

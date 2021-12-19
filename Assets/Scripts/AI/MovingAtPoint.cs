@@ -19,7 +19,7 @@ public class MovingAtPoint : MovingStrategy
         isMoving = true;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(isMoving)
         {

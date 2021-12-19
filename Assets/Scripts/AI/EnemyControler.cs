@@ -24,8 +24,9 @@ public class EnemyControler
 
     public void Shout(Vector2 targetPoint)
     {
-        shoutStrategy = new ShoutAtPoint(targetPoint);
-        shoutStrategy.Shout();
+        Debug.Log("Shoot!");
+        //shoutStrategy = new ShoutAtPoint(targetPoint);
+        //shoutStrategy.Shout();
     }
 
     public void Move()
@@ -34,10 +35,11 @@ public class EnemyControler
         movingStrategy.Move(enemyTransform);
     }
 
-    public void Move(Vector2 targetPoint)
+    public void Move(Vector2 targetPoint, float speed)
     {
-        movingStrategy = new MovingAtPoint(targetPoint, 0.1f);
-        movingStrategy.Move(enemyTransform);
+        enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, targetPoint, speed);
+        //movingStrategy = new MovingAtPoint(targetPoint, 0.1f);
+        //movingStrategy.Move(enemyTransform);
     }
 
 /*    public void Move(Vector2 targetPoint1, Vector2 targetPoint2)
