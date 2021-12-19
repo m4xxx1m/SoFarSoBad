@@ -68,14 +68,14 @@ public class MapManager : MonoBehaviour
         float x = coordinates.x;
         if (x > width)
         {
-            if (x > (chunkNumArray[1] + 0.5f) * width)
+            if (x > (chunkNumArray[1] + 0.7f) * width)
             {
                 RemoveMap(chunkNumArray[0]);
                 chunkNumArray[0] = chunkNumArray[1];
                 chunkNumArray[1] = chunkNumArray[1] + 1;
                 GenerateMap(chunkNumArray[1]);
             }
-            else if (x < (chunkNumArray[0] + 0.5f) * width)
+            else if (x < (chunkNumArray[0] + 0.3f) * width)
             {
                 RemoveMap(chunkNumArray[1]);
                 chunkNumArray[1] = chunkNumArray[0];

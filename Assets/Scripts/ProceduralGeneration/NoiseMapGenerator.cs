@@ -13,6 +13,7 @@ public class NoiseMapGenerator
     private int seed;
 
     [SerializeField] private float level = 0.5f; // от 0 до 1, значения больше этого уровня создают блок
+    [SerializeField] private float level2 = 0.9f;
 
     public NoiseMapGenerator(int w, int h, Vector2 o, int s): this(w, h, o, 15f, 4, 0.5f, 2f, s)
     { }
@@ -131,9 +132,13 @@ public class NoiseMapGenerator
                 {
                     tileMap[i, j] = MapManager.MAP_BORDER;
                 }
-                else if (noiseMap[i, j] >= level)
+                else if (noiseMap[i, j] >= level && noiseMap[i, j] < level2)
                 {
                     tileMap[i, j] = MapManager.WALL;
+                }
+                else if (noiseMap[i, j] >= level2)
+                {
+                    tileMap[i, j] = MapManager.MAP_BORDER;
                 }
                 else
                 {
