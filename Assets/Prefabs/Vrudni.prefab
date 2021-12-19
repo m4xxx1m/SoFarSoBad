@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acb09236c1fc804aad7444854fc02a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAggressive: 1
+  isAggressive: 0
   enemyState: 1
   speed: 0.02
   awaitingTimeSeconds: 2
