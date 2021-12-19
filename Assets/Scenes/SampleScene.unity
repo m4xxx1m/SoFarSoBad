@@ -272,7 +272,7 @@ MonoBehaviour:
   enemieTile: {fileID: 11400000, guid: 27250446876a51a419bfb5abddce55f2, type: 2}
   chestTile: {fileID: 11400000, guid: e61d3c64e37cc7b4f936b5e480711f07, type: 2}
   gearTile: {fileID: 11400000, guid: ea115ba646e6f4045a1b708ea4ee2308, type: 2}
-  grohogCellTile: {fileID: 11400000, guid: 9007608b22127a54aba7551af5416fe7, type: 2}
+  grohogCellTile: {fileID: 11400000, guid: 92dc36b4f14e26a4faca70f4a605f679, type: 2}
 --- !u!114 &271239992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f09ceacce917a4d88830bcfb0b6b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caveType: 0
+  caveType: 1
   width: 50
   height: 50
   chunkNumArray: 0000000001000000
@@ -7503,28 +7503,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1676714455}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1552707829 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7612806441991720401, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
-    type: 3}
-  m_PrefabInstance: {fileID: 1676714455}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1552707836
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552707829}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 15
 --- !u!1001 &1676714455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7534,8 +7512,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7612806441991720396, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
         type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612806441991720396, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
+        type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7612806441991720396, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
         type: 3}
@@ -7545,6 +7528,21 @@ PrefabInstance:
     - target: {fileID: 7612806441991720396, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
         type: 3}
       propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612806441991720396, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612806441991720396, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612806441991720397, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
+        type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7612806441991720398, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
@@ -7609,6 +7607,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7612806441991720401, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612806441991720401, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
+        type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -7621,6 +7624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -436882255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612806442096704098, guid: ef6f9fa460c55c043b97fbe1bf9fdb82,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6f9fa460c55c043b97fbe1bf9fdb82, type: 3}

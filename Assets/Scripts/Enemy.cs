@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(Vector2.MoveTowards(rb.position, target.position, speed));
+        //rb.MovePosition(Vector2.MoveTowards(rb.position, target.position, speed));
     }
 
     private void OnCollisionEnter2D(Collision2D _other)

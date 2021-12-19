@@ -12,8 +12,8 @@ public class EnemyControler
     public EnemyControler(Transform enemyTransform)
     {
         this.enemyTransform = enemyTransform;
-        shoutStrategy = new NoShout();
-        movingStrategy = new NoMoving();
+        //shoutStrategy = new NoShout();
+        //movingStrategy = new NoMoving();
     }
 
     public void Shout()

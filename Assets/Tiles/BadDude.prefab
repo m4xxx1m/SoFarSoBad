@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 8812734007820934506}
   - component: {fileID: 8326529139298739800}
   - component: {fileID: 8466633467462276367}
+  - component: {fileID: 5716586405723064643}
+  - component: {fileID: 3126204425695709163}
   m_Layer: 8
   m_Name: BadDude
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
+  radiationLevel: 0
 --- !u!61 &8326529139298739800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -98,7 +101,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5212148327361103084}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -111,6 +114,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5716586405723064643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212148327361103084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9944107af7f8f42a6ef9a2538881de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsForDisable: 4
+  haveRadiation: 1
+  circleColliderRadius: 4.69
+  deltaRadiation: 5
+  secondsPerDamage: 2
+--- !u!58 &3126204425695709163
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212148327361103084}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.69
 --- !u!1 &5955067173668892641
 GameObject:
   m_ObjectHideFlags: 0
