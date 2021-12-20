@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAggressive: 1
-  enemyState: 1
+  enemyState: 0
   speed: 0.02
   awaitingTimeSeconds: 2
   generatingIntervalStart: 8
