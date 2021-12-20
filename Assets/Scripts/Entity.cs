@@ -5,6 +5,9 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [SerializeField] private float health = 3f;
+    [SerializeField] private float radiationLevel = 0f;
+
+    public float RadiationLevel { get => radiationLevel; set => radiationLevel = value; }
 
     private void AddHealth(float _delta)
     {
