@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class BigShot : MonoBehaviour
 {
+    [SerializeField] private GameObject turret;
     [SerializeField] private GameObject bullet;
 
+    [SerializeField] private Animator animator;
+
     private Rigidbody2D rb;
-    private Vector2     dir;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void SetDirection(Vector2 _dir)
-    {
-        dir = _dir;
-    }
-
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetMouseButtonDown(0))
         {
-            GameObject shot = Instantiate(bullet, transform.position, Quaternion.identity);
-            shot.SendMessage("SetDirection", dir, SendMessageOptions.DontRequireReceiver);
+            GameObject shot = Instantiate(bullet, turret.transform.position, turret.transform.rotation);
+            animator.SetTrigger("Shoot");
         }
     }
 }
