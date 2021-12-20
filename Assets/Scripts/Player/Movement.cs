@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private static Vector2 Up    = new Vector2(0,  1);
-    private static Vector2 Down  = new Vector2(0, -1);
-    private static Vector2 Right = new Vector2(1,  0);
-    private static Vector2 Left  = new Vector2(-1, 0);
-
     [SerializeField] private float speed     = 7.5f;
     
     [SerializeField] private float dashTime  = 0.25f;
     [SerializeField] private float dashSpeed = 30.0f;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer dud;
+
     private Rigidbody2D rb;
     private Vector2     input;
-    private Vector2     dir = Down;
 
     private bool        dash      = false;
     private float       dashTimer = 0;
@@ -24,20 +21,19 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameObject.SendMessage("SetDirection", dir, SendMessageOptions.DontRequireReceiver);
     }
 
     private void Update()
     {
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
+
+        animator.SetBool("Walk", (input.x != 0 || input.y != 0));
+
         if(input.x != 0)
-            dir = (input.x > 0 ? Right : Left);
-        else if(input.y != 0)
-            dir = (input.y > 0 ? Up : Down);
-
-        gameObject.SendMessage("SetDirection", dir, SendMessageOptions.DontRequireReceiver);
-
+        {
+            dud.flipX = input.x < 0;
+        }
+        
         //dash
         if(Input.GetKeyDown(KeyCode.C))
         {
@@ -61,6 +57,7 @@ public class Movement : MonoBehaviour
                 rb.MovePosition(rb.position + input.normalized * dashSpeed * Time.fixedDeltaTime);
         }
 
-        MapManager.GetInstance().SetCoordinates(rb.position);
+        if(MapManager.GetInstance() != null)
+            MapManager.GetInstance().SetCoordinates(rb.position);
     }
 }

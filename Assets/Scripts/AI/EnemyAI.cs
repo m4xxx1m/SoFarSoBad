@@ -137,6 +137,22 @@ public class EnemyAI : MonoBehaviour
             enemyState = EnemyState.WalkingAround;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "TileMap")
+        {
+            enemyState = EnemyState.Chill;
+        }
+    }
+
+/*    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "TileMap")
+        {
+            enemyState = EnemyState.Chill;
+        }
+    }*/
 }
 
 public enum EnemyState

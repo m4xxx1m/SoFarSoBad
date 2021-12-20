@@ -9,9 +9,12 @@ public class EnemyControler
     private MovingStrategy movingStrategy { get; set; }
     private float speed { get; set; }
 
+    private Rigidbody2D rigidbody;
+
     public EnemyControler(Transform enemyTransform)
     {
         this.enemyTransform = enemyTransform;
+        rigidbody = enemyTransform.gameObject.GetComponent<Rigidbody2D>();
         //shoutStrategy = new NoShout();
         //movingStrategy = new NoMoving();
     }
@@ -37,7 +40,9 @@ public class EnemyControler
 
     public void Move(Vector2 targetPoint, float speed)
     {
-        enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, targetPoint, speed);
+        //enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, targetPoint, speed);
+        Vector2 newPosition = Vector2.MoveTowards(enemyTransform.position, targetPoint, Time.deltaTime * speed);
+        rigidbody.MovePosition(newPosition);
         //movingStrategy = new MovingAtPoint(targetPoint, 0.1f);
         //movingStrategy.Move(enemyTransform);
     }

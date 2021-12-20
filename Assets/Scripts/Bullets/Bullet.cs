@@ -18,13 +18,14 @@ public class Bullet : MonoBehaviour
     private float lifeTimer = 0f;
 
     private Rigidbody2D rb;
-    private Vector2     dir;
+    
+    [SerializeField] private string wallTileName = "grey_tile";
 
     private void Start()
     {
-        tilemapGameObject = GameObject.FindGameObjectsWithTag("TileMap")[0];
-        if (tilemapGameObject != null)
+        if(GameObject.FindGameObjectsWithTag("TileMap").Length > 0)
         {
+            tilemapGameObject = GameObject.FindGameObjectsWithTag("TileMap")[0];
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
         }
     }
@@ -34,24 +35,9 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void SetDirection(Vector2 _dir)
-    {
-        dir = _dir;
-    }
-
-    private void Update()
-    {
-        sprite.Rotate(new Vector3(0, 0, 10f));
-
-        if(dir.x != 0)
-            sprite.localPosition = new Vector2(0, Mathf.Sin(Time.time * 3) / 4);
-        else
-            sprite.localPosition = new Vector2(Mathf.Sin(Time.time * 3) / 4, 0);
-    }
-
     private void FixedUpdate()
     {
-        rb.velocity = dir * speed;
+        rb.velocity = transform.right * speed;
         lifeTimer += Time.fixedDeltaTime;
         if(lifeTimer >= lifetime)
         {
@@ -69,7 +55,12 @@ public class Bullet : MonoBehaviour
             {
                 hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                 hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                tilemap.SetTile(tilemap.WorldToCell(hitPosition), floorTile);
+                Vector3Int vector = tilemap.WorldToCell(hitPosition);
+                TileBase tile = tilemap.GetTile(vector);
+                if (tile != null && tile.name == wallTileName)
+                {
+                    tilemap.SetTile(vector, floorTile);
+                }
             }
         }
         Destroy(gameObject);
