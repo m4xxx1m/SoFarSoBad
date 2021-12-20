@@ -18,13 +18,12 @@ public class Bullet : MonoBehaviour
     private float lifeTimer = 0f;
 
     private Rigidbody2D rb;
-    private Vector2     dir;
 
     private void Start()
     {
-        tilemapGameObject = GameObject.FindGameObjectsWithTag("TileMap")[0];
-        if (tilemapGameObject != null)
+        if(GameObject.FindGameObjectsWithTag("TileMap").Length > 0)
         {
+            tilemapGameObject = GameObject.FindGameObjectsWithTag("TileMap")[0];
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
         }
     }
@@ -34,24 +33,9 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void SetDirection(Vector2 _dir)
-    {
-        dir = _dir;
-    }
-
-    private void Update()
-    {
-        sprite.Rotate(new Vector3(0, 0, 10f));
-
-        if(dir.x != 0)
-            sprite.localPosition = new Vector2(0, Mathf.Sin(Time.time * 3) / 4);
-        else
-            sprite.localPosition = new Vector2(Mathf.Sin(Time.time * 3) / 4, 0);
-    }
-
     private void FixedUpdate()
     {
-        rb.velocity = dir * speed;
+        rb.velocity = transform.right * speed;
         lifeTimer += Time.fixedDeltaTime;
         if(lifeTimer >= lifetime)
         {
