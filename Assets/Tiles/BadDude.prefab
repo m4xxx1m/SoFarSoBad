@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3126204425695709163}
   m_Layer: 8
   m_Name: BadDude
-  m_TagString: Enemy
+  m_TagString: Grohog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,9 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeForDisable: 0
   haveRadiation: 1
-  circleColliderRadius: 8
+  circleColliderRadius: 5.61
   deltaRadiation: 5
   timeBeforeRadiationDamage: 1
+  wallTileName: grey_tile
+  borderTileName: black_tile
   BorderTilesCoeff: 3
   isCoroutineStarted: 0
 --- !u!58 &3126204425695709163
@@ -151,7 +153,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 5.61
 --- !u!1 &5955067173668892641
 GameObject:
   m_ObjectHideFlags: 0

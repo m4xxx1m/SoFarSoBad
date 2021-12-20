@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1727065893538627770}
   m_Layer: 7
   m_Name: Vrudni
-  m_TagString: Enemy
+  m_TagString: Vrudni
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acb09236c1fc804aad7444854fc02a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAggressive: 0
+  isAggressive: 1
   enemyState: 1
   speed: 0.02
   awaitingTimeSeconds: 2
@@ -176,5 +176,7 @@ MonoBehaviour:
   circleColliderRadius: 33.02
   deltaRadiation: 5
   timeBeforeRadiationDamage: 1
+  wallTileName: grey_tile
+  borderTileName: black_tile
   BorderTilesCoeff: 3
   isCoroutineStarted: 0

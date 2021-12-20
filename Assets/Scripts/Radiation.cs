@@ -14,8 +14,8 @@ public class Radiation : MonoBehaviour
     private Tilemap tilemap;
     private float timeFromLastRadiationDamage = 0f;
 
-    private string wallTileName = "grey_tile";
-    private string borderTileName = "black_tile";
+    [SerializeField] private string wallTileName = "grey_tile";
+    [SerializeField] private string borderTileName = "black_tile";
 
     [SerializeField] private int BorderTilesCoeff = 3;
 
@@ -56,8 +56,17 @@ public class Radiation : MonoBehaviour
                     foreach (RaycastHit2D hit in hits)
                     {
                         Collider2D collider = hit.collider;
+                        if (collider.gameObject.tag == "Player")
+                        {
+                            distance = hit.distance;
+                            break;
+                        }
+                    }
+                    foreach (RaycastHit2D hit in hits)
+                    {
+                        Collider2D collider = hit.collider;
                         Vector3 hitPosition = Vector3.zero;
-                        if (collider.gameObject == tilemapGameObject)
+                        if (collider.gameObject == tilemapGameObject && hit.distance < distance)
                         {
                             hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                             hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
@@ -70,12 +79,6 @@ public class Radiation : MonoBehaviour
                             {
                                 hitsCount += BorderTilesCoeff;
                             }
-                        }
-                        else if (collider.gameObject.tag == "Player")
-                        {
-                            distance = hit.distance;
-                            break;
-                            // Если луч нормально идет от объекта радиации к игроку, здесь нужен break
                         }
                     }
                     Debug.Log(this.name + " " + "Distance to player: " + distance);
@@ -102,7 +105,7 @@ public class Radiation : MonoBehaviour
         if (!(collision is CapsuleCollider2D)) return;
         switch (collision.gameObject.tag)
         {
-            case "Enemy":
+            case "Vrudni":
                 {
                     GameObject enemyGameObject = collision.gameObject;
                     Radiation radiation = enemyGameObject.GetComponent<Radiation>();
@@ -122,7 +125,7 @@ public class Radiation : MonoBehaviour
         //if (!(collision is CapsuleCollider2D)) return;
         switch (collision.gameObject.tag)
         {
-            case "Enemy":
+            case "Vrudni":
                 GameObject enemyGameObject = collision.gameObject;
                 Radiation radiation = enemyGameObject.GetComponent<Radiation>();
                 if (!radiation.haveRadiation)
