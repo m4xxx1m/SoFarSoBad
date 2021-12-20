@@ -1,19 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Radiation : MonoBehaviour
 {
-    [SerializeField] private int secondsForDisable;
+    [SerializeField] private int timeForDisable;
     [SerializeField] private bool haveRadiation;
     [SerializeField] private float circleColliderRadius;
     [SerializeField] private float deltaRadiation;
-    [SerializeField] private float secondsPerDamage;
+    [SerializeField] private float timeBeforeRadiationDamage;
 
     private GameObject tilemapGameObject;
     private Tilemap tilemap;
     private float timeFromLastRadiationDamage = 0f;
+
+    private string wallTileName = "grey_tile";
+    private string borderTileName = "black_tile";
+
+    [SerializeField] private int BorderTilesCoeff = 3;
+
+    [SerializeField] private bool isCoroutineStarted = false;
 
     private void Start()
     {
@@ -26,8 +32,10 @@ public class Radiation : MonoBehaviour
 
     public IEnumerator DisableAfterSomeSeconds()
     {
-        yield return new WaitForSeconds(secondsForDisable);
+        isCoroutineStarted = true;
+        yield return new WaitForSeconds(timeForDisable);
         this.haveRadiation = false;
+        isCoroutineStarted = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -38,7 +46,7 @@ public class Radiation : MonoBehaviour
             case "Player":
                 {
                     timeFromLastRadiationDamage += Time.deltaTime;
-                    if (timeFromLastRadiationDamage < secondsPerDamage) return;
+                    if (timeFromLastRadiationDamage < timeBeforeRadiationDamage) return;
                     else timeFromLastRadiationDamage = 0f;
                     GameObject playerGameObject = collision.gameObject;
                     Vector2 direction = (playerGameObject.transform.position - transform.position).normalized;
@@ -54,12 +62,21 @@ public class Radiation : MonoBehaviour
                             hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                             hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
                             TileBase tile = tilemap.GetTile(tilemap.WorldToCell(hitPosition));
-                            if(tile.name == "grey_tile")
+                            if (tile.name == wallTileName)
                             {
                                 hitsCount++;
                             }
+                            else if (tile.name == borderTileName)
+                            {
+                                hitsCount += BorderTilesCoeff;
+                            }
                         }
-                        else if (collider.gameObject.tag == "Player") distance = hit.distance;
+                        else if (collider.gameObject.tag == "Player")
+                        {
+                            distance = hit.distance;
+                            break;
+                            // ≈сли луч нормально идет от объекта радиации к игроку, здесь нужен break
+                        }
                     }
                     Debug.Log(this.name + " " + "Distance to player: " + distance);
                     
@@ -67,10 +84,13 @@ public class Radiation : MonoBehaviour
                     float k1 = hitsCount;
                     float k2 = distance;
                     float radiationForPlayer = deltaRadiation * k1 * k2;
+                    Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}");
                     // в принципе здесь тво€ часть заканчиваетс€
 
                     Entity entity = playerGameObject.GetComponent<Entity>();
-                    entity.RadiationLevel += radiationForPlayer;
+                    //entity.RadiationLevel += radiationForPlayer;
+                    entity.AddRadiation(radiationForPlayer);
+                    entity.isInRadiation = true;
                     break;
                 }
         }
@@ -89,10 +109,36 @@ public class Radiation : MonoBehaviour
                     if (!radiation.haveRadiation)
                     {
                         radiation.haveRadiation = true;
-                        StartCoroutine(radiation.DisableAfterSomeSeconds());
+                        //StartCoroutine(radiation.DisableAfterSomeSeconds());
                     }
                     break;
                 }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!haveRadiation) return;
+        //if (!(collision is CapsuleCollider2D)) return;
+        switch (collision.gameObject.tag)
+        {
+            case "Enemy":
+                GameObject enemyGameObject = collision.gameObject;
+                Radiation radiation = enemyGameObject.GetComponent<Radiation>();
+                if (!radiation.haveRadiation)
+                {
+                    radiation.haveRadiation = true;
+                }
+                if (!radiation.isCoroutineStarted)
+                {
+                    StartCoroutine(radiation.DisableAfterSomeSeconds());
+                }
+                break;
+            case "Player":
+                Entity entity = collision.gameObject.GetComponent<Entity>();
+                entity.isInRadiation = false;
+                StartCoroutine(entity.NullRadiationAfterSomeSeconds());
+                break;
         }
     }
 }

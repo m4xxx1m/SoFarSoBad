@@ -12,8 +12,8 @@ public class NoiseMapGenerator
     private float lacunarity;
     private int seed;
 
-    [SerializeField] private float level = 0.5f; // от 0 до 1, значения больше этого уровня создают блок
-    [SerializeField] private float level2 = 0.9f;
+    private float level = 0.5f; // от 0 до 1, значения больше этого уровня создают блок
+    private float level2 = 0.85f; // блоки после этого значения не должны разрушаться
 
     public NoiseMapGenerator(int w, int h, Vector2 o, int s): this(w, h, o, 15f, 4, 0.5f, 2f, s)
     { }

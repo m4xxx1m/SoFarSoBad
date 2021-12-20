@@ -171,8 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9944107af7f8f42a6ef9a2538881de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsForDisable: 4
+  timeForDisable: 0
   haveRadiation: 0
   circleColliderRadius: 33.02
   deltaRadiation: 5
-  secondsPerDamage: 2
+  timeBeforeRadiationDamage: 1
+  BorderTilesCoeff: 3
+  isCoroutineStarted: 0
