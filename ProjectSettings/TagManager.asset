@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - TileMap
+  - Grohog
   layers:
   - Default
   - TransparentFX

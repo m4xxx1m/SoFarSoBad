@@ -81,8 +81,12 @@ public class Radiation : MonoBehaviour
                     Debug.Log(this.name + " " + "Distance to player: " + distance);
                     
                     // Todo: вот сюда вставляешь все свои формулки для коэффицинтов
-                    float k1 = hitsCount;
-                    float k2 = distance;
+                    float k1 = 1f;
+                    for (int i = 0; i < hitsCount; ++i)
+                    {
+                        k1 *= 0.8f;
+                    }
+                    float k2 = distance / circleColliderRadius;
                     float radiationForPlayer = deltaRadiation * k1 * k2;
                     Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}");
                     // в принципе здесь твоя часть заканчивается

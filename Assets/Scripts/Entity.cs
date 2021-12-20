@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour
 {
     [SerializeField] private float health = 3f;
     [SerializeField] private float radiationLevel = 0f;
-    [SerializeField] private float maxRadiationLevel = 100f;
+    [SerializeField] private float maxRadiationLevel = 20f;
     [SerializeField] private float timeForNullRadiation = 5;
     [SerializeField] public bool isInRadiation = false;
 
@@ -17,6 +17,7 @@ public class Entity : MonoBehaviour
         {
             Debug.Log("Dead by radiation");
             gameObject.SendMessage("Death by radiation", null, SendMessageOptions.DontRequireReceiver);
+            Death();
         }
     }
 

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3126204425695709163}
   m_Layer: 8
   m_Name: BadDude
-  m_TagString: Enemy
+  m_TagString: Grohog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,10 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9944107af7f8f42a6ef9a2538881de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForDisable: 0
+  timeForDisable: 4
   haveRadiation: 1
   circleColliderRadius: 8
-  deltaRadiation: 5
+  deltaRadiation: 10
   timeBeforeRadiationDamage: 1
   BorderTilesCoeff: 3
   isCoroutineStarted: 0
