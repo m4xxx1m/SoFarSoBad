@@ -9,12 +9,12 @@ public class Bullet : MonoBehaviour
     private GameObject tilemapGameObject;
     private Tilemap tilemap;
 
-    [SerializeField] private float      speed    = 10f;
-    [SerializeField] private float      damage   = 1f;
+    [SerializeField] private float speed    = 10f;
+    [SerializeField] private float damage   = 1f;
 
     [SerializeField] private Transform  sprite;
     
-    [SerializeField] private float      lifetime = 1f;
+    [SerializeField] private float lifetime = 1f;
     private float lifeTimer = 0f;
 
     private Rigidbody2D rb;
