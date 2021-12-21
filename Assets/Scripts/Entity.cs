@@ -8,11 +8,22 @@ public class Entity : MonoBehaviour
     [SerializeField] private float maxRadiationLevel = 20f;
     [SerializeField] private float timeForNullRadiation = 5;
     [SerializeField] public bool isInRadiation = false;
+    
+    private UIControl uiControl;
+    private float startHealth;
 
     //public float RadiationLevel { get => radiationLevel; set => radiationLevel = value; }
+
+    private void Start()
+    {
+        startHealth = health;
+        uiControl = GameObject.FindGameObjectsWithTag("Canvas")[0].GetComponent<UIControl>();
+    }
+
     public void AddRadiation(float radLevel)
     {
         radiationLevel += radLevel;
+        if (gameObject.tag == "Player") uiControl.radiationIndicatorWidth = radiationLevel / maxRadiationLevel;
         if (radiationLevel >= maxRadiationLevel)
         {
             Debug.Log("Dead by radiation");
@@ -24,21 +35,29 @@ public class Entity : MonoBehaviour
     private void AddHealth(float _delta)
     {
         health += _delta;
+        if (gameObject.tag == "Player") uiControl.healthIndicatorWidth = health / startHealth;
     }
 
     private void ReduceHealth(float _delta)
     {
         health -= _delta;
+        if (gameObject.tag == "Player") uiControl.healthIndicatorWidth = health / startHealth;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Debug.Log("Dead");
             gameObject.SendMessage("Death", null, SendMessageOptions.DontRequireReceiver);
+            Death();
         }
     }
     
     private void Death()
     {
+        if (gameObject.tag == "Player")
+        {
+            uiControl.OpenGameOverMenu();
+            Time.timeScale = 0f;
+        }
         Destroy(gameObject);
     }
 
@@ -46,6 +65,9 @@ public class Entity : MonoBehaviour
     {
         yield return new WaitForSeconds(timeForNullRadiation);
         if (!isInRadiation)
+        {
             this.radiationLevel = 0f;
+            uiControl.radiationIndicatorWidth = 0f;
+        }
     }
 }

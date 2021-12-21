@@ -8,6 +8,7 @@ TagManager:
   - TileMap
   - Grohog
   - Vrudni
+  - Canvas
   layers:
   - Default
   - TransparentFX
@@ -47,4 +48,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 3858085041
+    locked: 0
+  - name: UI
+    uniqueID: 3832646763
     locked: 0
