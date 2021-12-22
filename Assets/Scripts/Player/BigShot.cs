@@ -19,7 +19,7 @@ public class BigShot : MonoBehaviour
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
-        {
+        { 
             GameObject shot = Instantiate(bullet, turret.transform.position, turret.transform.rotation);
             animator.SetTrigger("Shoot");
         }

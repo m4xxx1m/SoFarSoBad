@@ -70,6 +70,8 @@ MonoBehaviour:
   maxRadiationLevel: 100
   timeForNullRadiation: 5
   isInRadiation: 0
+  floorTile: {fileID: 0}
+  gearTileName: gear
 --- !u!61 &8326529139298739800
 BoxCollider2D:
   m_ObjectHideFlags: 0

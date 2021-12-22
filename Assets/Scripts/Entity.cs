@@ -92,7 +92,7 @@ public class Entity : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isThisGameObjectPlayer) return;
+        if (!isThisGameObjectPlayer) return;
         Vector3 hitPosition = Vector3.zero;
         if (tilemap != null && tilemapGameObject == collision.gameObject)
         {

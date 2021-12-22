@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float generatingIntervalStart;
     [SerializeField] private float generatingIntervalEnd;
     [SerializeField] private float secondsBetweenShooting;
+    [SerializeField] private GameObject bullet;
 
     private Vector2 targetPoint1;
     private Vector2 targetPoint2;
@@ -68,7 +69,7 @@ public class EnemyAI : MonoBehaviour
                     timeFromLastShooting += Time.fixedDeltaTime;
                     if(timeFromLastShooting >= secondsBetweenShooting)
                     {
-                        controler.Shout(playerTransform.position);
+                        Shout(playerTransform.position);
                         timeFromLastShooting = 0f;
                     }
                     controler.Move(playerTransform.position, speed);
@@ -146,13 +147,13 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-/*    private void OnCollisionStay2D(Collision2D collision)
+    private void Shout(Vector2 targetPoint)
     {
-        if (collision.gameObject.tag == "TileMap")
-        {
-            enemyState = EnemyState.Chill;
-        }
-    }*/
+        Debug.Log("Shoot!");
+        Vector3 perpendicular = Vector3.Cross(transform.position - new Vector3(targetPoint.x, targetPoint.y, 0), transform.forward);
+        Quaternion rotation = Quaternion.LookRotation(transform.forward, perpendicular);
+        GameObject shot = Instantiate(bullet, transform.position, rotation);
+    }
 }
 
 public enum EnemyState

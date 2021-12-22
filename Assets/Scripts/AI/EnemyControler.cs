@@ -25,9 +25,13 @@ public class EnemyControler
         shoutStrategy.Shout();
     }
 
-    public void Shout(Vector2 targetPoint)
+    public void Shout(Vector2 targetPoint, GameObject bullet)
     {
-        Debug.Log("Shoot!");
+/*        Debug.Log("Shoot!");
+        Vector2 direction = targetPoint - new Vector2(enemyTransform.position.x, enemyTransform.position.y);
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        GameObject shot = Instantiate(bullet, enemyTransform.position, rotation);*/
+
         //shoutStrategy = new ShoutAtPoint(targetPoint);
         //shoutStrategy.Shout();
     }
