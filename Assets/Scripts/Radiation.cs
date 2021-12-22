@@ -14,7 +14,7 @@ public class Radiation : MonoBehaviour
     private Tilemap tilemap;
     private float timeFromLastRadiationDamage = 0f;
 
-    [SerializeField] private string wallTileName = "grey_tile";
+    [SerializeField] private string wallTileName = "wall";
     [SerializeField] private string borderTileName = "black_tile";
 
     [SerializeField] private int BorderTilesCoeff = 3;
@@ -89,7 +89,7 @@ public class Radiation : MonoBehaviour
                     {
                         k1 *= 0.8f;
                     }
-                    float k2 = distance / circleColliderRadius;
+                    float k2 = 1f - distance / circleColliderRadius;
                     float radiationForPlayer = deltaRadiation * k1 * k2;
                     Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}");
                     // в принципе здесь твоя часть заканчивается
