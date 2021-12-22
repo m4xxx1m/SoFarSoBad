@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 7612806441991720396}
   m_Layer: 7
   m_Name: Dude
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   maxRadiationLevel: 100
   timeForNullRadiation: 5
   isInRadiation: 0
+  floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
+  gearTileName: gear
 --- !u!114 &7612806441991720399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +131,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 15
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -278,7 +280,7 @@ GameObject:
   - component: {fileID: 516310949463542821}
   - component: {fileID: 906168104144619582}
   - component: {fileID: 140402473081232474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +340,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -436882255
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cd1ecb1e6aa3fa240a2917d876b490f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

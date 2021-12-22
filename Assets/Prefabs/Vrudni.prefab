@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8628216160996803636}
   - component: {fileID: 8628216160996803637}
+  - component: {fileID: 2638040418306789035}
   - component: {fileID: 8628216160996803642}
   - component: {fileID: 8437689559723621109}
   - component: {fileID: 4777279118918150732}
   - component: {fileID: 8245610959858608434}
   - component: {fileID: 1727065893538627770}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Vrudni
   m_TagString: Vrudni
   m_Icon: {fileID: 0}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -436882255
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f5845f68ca0b96f469bccb70a00c0b7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -87,6 +88,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2638040418306789035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628216160996803643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81269fa9541a78749981e9f1bda59f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  radiationLevel: 0
+  maxRadiationLevel: 20
+  timeForNullRadiation: 5
+  isInRadiation: 0
+  floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
+  gearTileName: gear
 --- !u!114 &8628216160996803642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,12 +120,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAggressive: 1
-  enemyState: 0
-  speed: 0.02
+  enemyState: 1
+  speed: 1.3
   awaitingTimeSeconds: 2
-  generatingIntervalStart: 8
-  generatingIntervalEnd: 20
+  generatingIntervalStart: 4
+  generatingIntervalEnd: 7
   secondsBetweenShooting: 2
+  bullet: {fileID: 1906200480694820151, guid: f63230e0a2023874b9d143e0aad58c08, type: 3}
 --- !u!70 &8437689559723621109
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -130,19 +151,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8628216160996803643}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 15
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8245610959858608434
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,10 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9944107af7f8f42a6ef9a2538881de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForDisable: 0
+  timeForDisable: 5
   haveRadiation: 0
   circleColliderRadius: 33.02
-  deltaRadiation: 5
+  deltaRadiation: 7.5
   timeBeforeRadiationDamage: 1
   wallTileName: grey_tile
   borderTileName: black_tile
