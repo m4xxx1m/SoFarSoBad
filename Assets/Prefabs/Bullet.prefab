@@ -128,12 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9201c97c4d010ca41bc2f139eed186c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorTile: {fileID: 11400000, guid: 7fbe0b0e92bafb54ea82ae7195fd7ae3, type: 2}
+  floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
   speed: 50
   damage: 1
   sprite: {fileID: 1757419916034428971}
   lifetime: 0.25
-  wallTileName: grey_tile
+  wallTileName: wall
 --- !u!50 &1757419916442637513
 Rigidbody2D:
   serializedVersion: 4
