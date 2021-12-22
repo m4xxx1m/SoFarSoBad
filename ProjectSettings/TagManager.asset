@@ -9,6 +9,7 @@ TagManager:
   - Grohog
   - Vrudni
   - Canvas
+  - Troned
   layers:
   - Default
   - TransparentFX

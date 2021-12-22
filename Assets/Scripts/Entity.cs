@@ -77,6 +77,11 @@ public class Entity : MonoBehaviour
             uiControl.OpenGameOverMenu();
             Time.timeScale = 0f;
         }
+        if(gameObject.tag == GlobalFields.tronedTag)
+        {
+            uiControl.OpenWinMenu();
+            Time.timeScale = 0f;
+        }
         Destroy(gameObject);
     }
 

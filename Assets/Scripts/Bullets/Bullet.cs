@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private Transform  sprite;
     
-    [SerializeField] private float lifetime = 1f;
+    public float lifetime = 1f;
     private float lifeTimer = 0f;
 
     private Rigidbody2D rb;

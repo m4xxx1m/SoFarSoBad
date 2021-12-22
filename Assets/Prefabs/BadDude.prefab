@@ -71,7 +71,6 @@ MonoBehaviour:
   timeForNullRadiation: 5
   isInRadiation: 0
   floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
-  gearTileName: gear
 --- !u!61 &8326529139298739800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,15 +109,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 75
+  m_Mass: 40
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &5716586405723064643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +135,6 @@ MonoBehaviour:
   circleColliderRadius: 5.61
   deltaRadiation: 5
   timeBeforeRadiationDamage: 1
-  wallTileName: grey_tile
-  borderTileName: black_tile
   BorderTilesCoeff: 3
   isCoroutineStarted: 0
 --- !u!58 &3126204425695709163

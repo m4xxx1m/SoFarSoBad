@@ -24,4 +24,5 @@ using System.Threading.Tasks;
         public const string vrudniTag = "Vrudni";
         public const string grohogTag = "Grohog";
         public const string canvasTag = "Canvas";
+        public const string tronedTag = "Troned";
 }

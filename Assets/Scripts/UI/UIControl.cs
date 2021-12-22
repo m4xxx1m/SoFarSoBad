@@ -11,6 +11,7 @@ public class UIControl : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject gameplayMenuPanel;
     [SerializeField] private GameObject gameOverMenuPanel;
+    [SerializeField] private GameObject winMenuPanel;
     [SerializeField] private Image healthIndicator;
     [SerializeField] private Image radiationIndicator;
 
@@ -72,6 +73,13 @@ public class UIControl : MonoBehaviour
     public void OpenGameOverMenu()
     {
         gameOverMenuPanel.SetActive(true);
+        CloseGameplayMenu();
+        CloseMenu();
+    }
+
+    public void OpenWinMenu()
+    {
+        winMenuPanel.SetActive(true);
         CloseGameplayMenu();
         CloseMenu();
     }
