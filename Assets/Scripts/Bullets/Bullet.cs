@@ -19,13 +19,13 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody2D rb;
     
-    [SerializeField] private string wallTileName = "grey_tile";
+    [SerializeField] private string wallTileName = GlobalFields.wallTileName;
 
     private void Start()
     {
-        if(GameObject.FindGameObjectsWithTag("TileMap").Length > 0)
+        if(GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag).Length > 0)
         {
-            tilemapGameObject = GameObject.FindGameObjectsWithTag("TileMap")[0];
+            tilemapGameObject = GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag)[0];
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
         }
     }

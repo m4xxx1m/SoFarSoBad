@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d3c06f3168f2b4fa8b284a515a838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSceneName: SampleScene
   speakPauseMultiplier: 3
   speakPauses: 2e002c0021003f002d00
   dialogueText: {fileID: 1048092670}

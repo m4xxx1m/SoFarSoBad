@@ -19,7 +19,7 @@ public class Entity : MonoBehaviour
     private Tilemap tilemap;
 
     [SerializeField] private Tile floorTile;
-    [SerializeField] private string gearTileName = "gear";
+    private string gearTileName = GlobalFields.gearTileName;
 
     private int gearsCount = 0;
 
@@ -28,15 +28,15 @@ public class Entity : MonoBehaviour
     private void Start()
     {
         startHealth = health;
-        uiControl = GameObject.FindGameObjectsWithTag("Canvas")[0].GetComponent<UIControl>();
+        uiControl = GameObject.FindGameObjectsWithTag(GlobalFields.canvasTag)[0].GetComponent<UIControl>();
 
-        if (GameObject.FindGameObjectsWithTag("TileMap").Length > 0)
+        if (GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag).Length > 0)
         {
-            tilemapGameObject = GameObject.FindGameObjectsWithTag("TileMap")[0];
+            tilemapGameObject = GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag)[0];
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
         }
 
-        isThisGameObjectPlayer = gameObject.tag == "Player";
+        isThisGameObjectPlayer = gameObject.tag == GlobalFields.playerTag;
     }
 
     public void AddRadiation(float radLevel)

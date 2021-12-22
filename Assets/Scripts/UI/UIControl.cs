@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIControl : MonoBehaviour
 {
-    [SerializeField] string mainMenuSceneName = "MainMenu";
+    private string mainMenuSceneName = GlobalFields.mainMenuSceneName;
 
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject gameplayMenuPanel;
@@ -94,6 +94,7 @@ public class UIControl : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuSceneName, LoadSceneMode.Single);
     }
 }

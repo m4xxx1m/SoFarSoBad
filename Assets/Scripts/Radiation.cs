@@ -14,8 +14,8 @@ public class Radiation : MonoBehaviour
     private Tilemap tilemap;
     private float timeFromLastRadiationDamage = 0f;
 
-    [SerializeField] private string wallTileName = "wall";
-    [SerializeField] private string borderTileName = "black_tile";
+    private string wallTileName = GlobalFields.wallTileName;
+    private string borderTileName = GlobalFields.borderTileName;
 
     [SerializeField] private int BorderTilesCoeff = 3;
 
@@ -23,7 +23,7 @@ public class Radiation : MonoBehaviour
 
     private void Start()
     {
-        tilemapGameObject = GameObject.FindGameObjectsWithTag("TileMap")[0];
+        tilemapGameObject = GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag)[0];
         if (tilemapGameObject != null)
         {
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
@@ -43,7 +43,7 @@ public class Radiation : MonoBehaviour
         if (!haveRadiation) return;
         switch(collision.gameObject.tag)
         {
-            case "Player":
+            case GlobalFields.playerTag:
                 {
                     timeFromLastRadiationDamage += Time.deltaTime;
                     if (timeFromLastRadiationDamage < timeBeforeRadiationDamage) return;
@@ -56,7 +56,7 @@ public class Radiation : MonoBehaviour
                     foreach (RaycastHit2D hit in hits)
                     {
                         Collider2D collider = hit.collider;
-                        if (collider.gameObject.tag == "Player")
+                        if (collider.gameObject.tag == GlobalFields.playerTag)
                         {
                             distance = hit.distance;
                             break;
@@ -109,7 +109,7 @@ public class Radiation : MonoBehaviour
         if (!(collision is CapsuleCollider2D)) return;
         switch (collision.gameObject.tag)
         {
-            case "Vrudni":
+            case GlobalFields.vrudniTag:
                 {
                     GameObject enemyGameObject = collision.gameObject;
                     Radiation radiation = enemyGameObject.GetComponent<Radiation>();
@@ -129,7 +129,7 @@ public class Radiation : MonoBehaviour
         //if (!(collision is CapsuleCollider2D)) return;
         switch (collision.gameObject.tag)
         {
-            case "Vrudni":
+            case GlobalFields.vrudniTag:
                 GameObject enemyGameObject = collision.gameObject;
                 Radiation radiation = enemyGameObject.GetComponent<Radiation>();
                 if (!radiation.haveRadiation)
@@ -141,7 +141,7 @@ public class Radiation : MonoBehaviour
                     StartCoroutine(radiation.DisableAfterSomeSeconds());
                 }
                 break;
-            case "Player":
+            case GlobalFields.playerTag:
                 Entity entity = collision.gameObject.GetComponent<Entity>();
                 entity.isInRadiation = false;
                 StartCoroutine(entity.NullRadiationAfterSomeSeconds());

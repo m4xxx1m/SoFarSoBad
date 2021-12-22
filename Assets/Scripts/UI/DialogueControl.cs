@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueControl : MonoBehaviour
 {
+    private string nextSceneName = GlobalFields.gameplaySceneName;
+
     public enum Speaker {HERO, VRUDNI};
 
     [Serializable] public struct Line
@@ -85,6 +88,7 @@ public class DialogueControl : MonoBehaviour
                 else
                 {
                     //переход к игре
+                    SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
                 }
             }
 

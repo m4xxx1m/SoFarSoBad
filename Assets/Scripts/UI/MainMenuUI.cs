@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [SerializeField] string newGameSceneName;
+    private string newGameSceneName = GlobalFields.dialogueSceneName;
 
     public void LoadNewGameScene()
     {
