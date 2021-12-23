@@ -2537,7 +2537,7 @@ MonoBehaviour:
   minTimeBetweenShoutAround: 5
   maxTimeBetweenShoutAround: 9
   timeBetweenShooting: 3
-  bullet: {fileID: 8016077150236306794, guid: 2e6ec0e21bbe20742b7dc28e4c2d59fc, type: 3}
+  bullet: {fileID: 8389619249540787188, guid: f0962a81b0e0fb14cac3366c5d5c720e, type: 3}
   player: {fileID: 1031931472}
 --- !u!114 &1883111508
 MonoBehaviour:
@@ -2557,6 +2557,7 @@ MonoBehaviour:
   timeForNullRadiation: 5
   isInRadiation: 1
   floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
+  gearsCounter: {fileID: 0}
 --- !u!114 &1883111509
 MonoBehaviour:
   m_ObjectHideFlags: 0

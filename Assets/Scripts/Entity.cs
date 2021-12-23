@@ -21,6 +21,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private Tile floorTile;
     private string gearTileName = GlobalFields.gearTileName;
 
+    [SerializeField] private GearCounter gearsCounter;
     private int gearsCount = 0;
 
     //public float RadiationLevel { get => radiationLevel; set => radiationLevel = value; }
@@ -98,6 +99,7 @@ public class Entity : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isThisGameObjectPlayer) return;
+        
         Vector3 hitPosition = Vector3.zero;
         if (tilemap != null && tilemapGameObject == collision.gameObject)
         {
@@ -107,10 +109,13 @@ public class Entity : MonoBehaviour
                 hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
                 Vector3Int vector = tilemap.WorldToCell(hitPosition);
                 TileBase tile = tilemap.GetTile(vector);
+
                 if (tile != null && tile.name == gearTileName)
                 {
                     tilemap.SetTile(vector, floorTile);
                     gearsCount++;
+
+                    gearsCounter.SetCount(gearsCount);
                 }
             }
         }
