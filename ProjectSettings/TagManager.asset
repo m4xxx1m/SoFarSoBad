@@ -9,6 +9,7 @@ TagManager:
   - Grohog
   - Vrudni
   - Canvas
+  - Gear
   layers:
   - Default
   - TransparentFX

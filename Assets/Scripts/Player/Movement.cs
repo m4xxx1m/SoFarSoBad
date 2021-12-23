@@ -35,12 +35,12 @@ public class Movement : MonoBehaviour
         }
         
         //dash
-        if(Input.GetKeyDown(KeyCode.C))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             dashTimer = 0;
             dash = true;
         }
-        else if(Input.GetKeyUp(KeyCode.C))
+        else if(Input.GetKeyUp(KeyCode.Space))
         {
             dash = false;
         }
