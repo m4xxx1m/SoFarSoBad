@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2642af6b296519142a8facc80973ab59
   - enabled: 1
+    path: Assets/Scenes/DialogueWithTroned.unity
+    guid: 5eb144cd9e16f1743943447d41168471
+  - enabled: 1
     path: Assets/Scenes/FightWithTroned.unity
     guid: 239c3340b97c96340a3c2c123c4b9445
+  - enabled: 1
+    path: Assets/Scenes/Scoretable.unity
+    guid: a1b80a43b6846844e970a0795e866189
   m_configObjects: {}

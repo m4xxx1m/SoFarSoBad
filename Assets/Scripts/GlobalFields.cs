@@ -10,6 +10,8 @@ static class GlobalFields
     public const string dialogueSceneName = "Dialogue";
     public const string gameplaySceneName = "SampleScene";
     public const string fightWithTronedSceneName = "FightWithTroned";
+    public const string dialogueWithTronedSceneName = "DialogueWithTroned";
+    public const string scoretableSceneName = "Scoretable";
 
     public const string wallTileName = "wall";
     public const string borderTileName = "black_tile";
