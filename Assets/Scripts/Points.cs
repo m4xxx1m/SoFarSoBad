@@ -17,10 +17,11 @@ public class Points
 
     public const int pointsForGear = 10;
     public const int pointsForVruden = 10;
-    public const int pointsForGrohog = 6;
+    public const int pointsForGrohog = -10;
     public const int pointsForTroned = 500;
+    public const int pointsFromChest = 50;
 
-    // [SerializeField] private PointCounter pointCounter;
+    public static PointCounter Counter;
     public int pointCounter = 0;
 
     public Points()

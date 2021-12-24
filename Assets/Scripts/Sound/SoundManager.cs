@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public AudioClip deathClip;
     [SerializeField] public AudioClip damageClip;
     [SerializeField] public AudioClip gearPickUpClip;
+    [SerializeField] public AudioClip powerUpClip;
 
     private static SoundManager instance;
 

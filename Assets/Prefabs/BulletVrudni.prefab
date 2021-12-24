@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1757419916442637515, guid: 4782fd42edaff534a9133bf4758fcedd,
+        type: 3}
+      propertyPath: speed
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757419916442637515, guid: 4782fd42edaff534a9133bf4758fcedd,
+        type: 3}
+      propertyPath: lifetime
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 1757419916442637516, guid: 4782fd42edaff534a9133bf4758fcedd,
         type: 3}
       propertyPath: m_RootOrder

@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
 
     // [SerializeField] private PointCounter pointCounter;
     [SerializeField] private GearCounter gearsCounter;
+    [SerializeField] private PointCounter pointCounter;
     private int gearsCount = 0;
 
     //public float RadiationLevel { get => radiationLevel; set => radiationLevel = value; }
@@ -43,6 +44,7 @@ public class Entity : MonoBehaviour
         if (isThisGameObjectPlayer)
         {
             new Points();
+            Points.Counter = pointCounter;
         }
     }
 
@@ -60,13 +62,25 @@ public class Entity : MonoBehaviour
 
     private void AddHealth(float _delta)
     {
+        if (_delta < 0f)
+        {
+            ReduceHealth(_delta);
+            return;
+        }
         health += _delta;
         if (health > startHealth) health = startHealth;
-        if (isThisGameObjectPlayer) uiControl.healthIndicatorWidth = health / startHealth;
+        if (isThisGameObjectPlayer)
+        {
+            uiControl.healthIndicatorWidth = health / startHealth;
+            SoundManager soundManager = SoundManager.getInstance();
+            soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
+        }
     }
 
     private void ReduceHealth(float _delta)
     {
+        if (gameObject.tag == GlobalFields.grohogTag)
+            return;
         health -= _delta;
         if (isThisGameObjectPlayer)
         {
@@ -98,18 +112,21 @@ public class Entity : MonoBehaviour
         {
             uiControl.OpenWinMenu();
             Time.timeScale = 0f;
-            Points.getCurrentInstance().pointCounter += Points.pointsForTroned;
-            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+            //Points.getCurrentInstance().pointCounter += Points.pointsForTroned;
+            //Points.Counter.SetCount();
+            //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
         }
         if (gameObject.tag == GlobalFields.vrudniTag)
         {
             Points.getCurrentInstance().pointCounter += (int)Mathf.Sqrt(Points.CurrentChunk) * Points.pointsForVruden;
-            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+            Points.Counter.SetCount();
+            //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
         }
         if (gameObject.tag == GlobalFields.grohogTag)
         {
             Points.getCurrentInstance().pointCounter += (int)Mathf.Sqrt(Points.CurrentChunk) * Points.pointsForGrohog;
-            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+            Points.Counter.SetCount();
+            //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
         }
         Destroy(gameObject);
     }
@@ -141,12 +158,13 @@ public class Entity : MonoBehaviour
                 if (tile != null && tile.name == gearTileName)
                 {
                     SoundManager soundManager = SoundManager.getInstance();
-                    soundManager.PlaySound(soundManager.gearPickUpClip, 0.8f);
+                    soundManager.PlaySound(soundManager.gearPickUpClip, 0.7f);
                     tilemap.SetTile(vector, floorTile);
                     gearsCount++;
                     gearsCounter.SetCount(gearsCount);
                     Points.getCurrentInstance().pointCounter += Points.pointsForGear * gearsCount;
-                    Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+                    Points.Counter.SetCount();
+                    //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
                 }
 
                 if (tile != null && tile.name == GlobalFields.chestTileName)
@@ -160,18 +178,30 @@ public class Entity : MonoBehaviour
 
     private void GetBonus()
     {
-        int bonusType = Random.Range(0, 1);
-        switch(bonusType)
+        int bonusType = Random.Range(0, 4);
+        Debug.Log($"Chest: {bonusType}");
+        SoundManager soundManager = SoundManager.getInstance();
+        switch (bonusType)
         {
             case 0:
-                {
-                    AddHealth(Random.Range(1, 4));
-                    break;
-                }
+                float health = Random.Range(-1f, 2f);
+                AddHealth(health);
+                break;
             case 1:
-                {
-                    break;
-                }
+                gearsCount++;
+                gearsCounter.SetCount(gearsCount);
+                soundManager.PlaySound(soundManager.gearPickUpClip, 0.7f);
+                break;
+            case 2:
+                Points.getCurrentInstance().pointCounter += Points.pointsFromChest;
+                Points.Counter.SetCount();
+                break;
+            case 3:
+                break;
+            case 4:
+                radiationLevel = 0;
+                soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
+                break;
         }
     }
 }
@@ -179,5 +209,5 @@ public class Entity : MonoBehaviour
 enum BonusType
 {
     PlusHealth = 0,
-    RadiationShield = 1
+    gearAdd = 1
 }
