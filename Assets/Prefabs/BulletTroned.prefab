@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,9 +131,11 @@ MonoBehaviour:
   floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
   speed: 50
   damage: 1
-  sprite: {fileID: 8016077148749736332}
   lifetime: 0.25
   wallTileName: wall
+  sprite: {fileID: 8016077148749736332}
+  particles: {fileID: 0}
+  particles2: {fileID: 0}
 --- !u!50 &8016077150236306798
 Rigidbody2D:
   serializedVersion: 4
