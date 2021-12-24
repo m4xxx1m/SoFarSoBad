@@ -20,9 +20,14 @@ public class NoiseMapRenderer : MonoBehaviour
         ApplyMap(width, height, wallsMap, itemMap, coordinates);
     }
 
-    private void ApplyMap(int width, int height, int[,] map, int[,] itemMap, Vector2 coordinates)
+    private void Awake()
     {
         tilemap = GetComponent<Tilemap>();
+    }
+
+    private void ApplyMap(int width, int height, int[,] map, int[,] itemMap, Vector2 coordinates)
+    {
+        //tilemap = GetComponent<Tilemap>();
         tilemap.size = new Vector3Int(map.GetLength(0), map.GetLength(1), 0);
         for (int y = 0; y < map.GetLength(0); ++y)
         {
@@ -30,7 +35,7 @@ public class NoiseMapRenderer : MonoBehaviour
             {
                 int tbm = MapManager.tilesBeyoundMap;
                 int pit = MapManager.pixelsInTile;
-                
+
                 switch (map[y, x])
                 {
                     case MapManager.MAP_BORDER:
@@ -43,30 +48,34 @@ public class NoiseMapRenderer : MonoBehaviour
                         tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, -1), floorTile);
                         break;
                 }
-                switch (itemMap[y, x])
+                if (itemMap != null)
                 {
-                    case MapManager.ENEMIE:
-                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), enemieTile);
-                        break;
-                    case MapManager.CHEST:
-                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), chestTile);
-                        break;
-                    case MapManager.GEAR:
-                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), gearTile);
-                        break;
-                    case MapManager.GROHOG_CELL:
-                        tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), grohogCellTile);
-                        break;
+                    switch (itemMap[y, x])
+                    {
+                        case MapManager.ENEMIE:
+                            tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), enemieTile);
+                            break;
+                        case MapManager.CHEST:
+                            tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), chestTile);
+                            break;
+                        case MapManager.GEAR:
+                            tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), gearTile);
+                            break;
+                        case MapManager.GROHOG_CELL:
+                            tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, 0), grohogCellTile);
+                            break;
+                    }
                 }
             }
         }
+        tilemap.CompressBounds();
     }
 
     public void RemoveMap(int width, int height, int chunkNum)
     {
         int tbm = MapManager.tilesBeyoundMap;
         //int pit = MapManager.pixelsInTile;
-        tilemap = GetComponent<Tilemap>();
+        //tilemap = GetComponent<Tilemap>();
         for (int y = -tbm; y < height + tbm; ++y)
         {
             for (int x = 0; x < width; ++x)
@@ -79,7 +88,7 @@ public class NoiseMapRenderer : MonoBehaviour
 
     public void FreeSpaceForSpawn()
     {
-        tilemap = GetComponent<Tilemap>();
+        //tilemap = GetComponent<Tilemap>();
         int fsfs = MapManager.freeSpaceForSpawn;
         for (int y = -fsfs; y < fsfs; ++y)
         {

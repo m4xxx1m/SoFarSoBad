@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -50,6 +48,7 @@ public class MapManager : MonoBehaviour
             GenerateMap(chunkNumArray[i]);
         FreeSpaceForSpawn();
         instance = this;
+        Points.CurrentChunk = 1;
     }
 
     /*private void FixedUpdate()
@@ -74,13 +73,15 @@ public class MapManager : MonoBehaviour
                 chunkNumArray[0] = chunkNumArray[1];
                 chunkNumArray[1] = chunkNumArray[1] + 1;
                 GenerateMap(chunkNumArray[1]);
+                Points.CurrentChunk = chunkNumArray[1];
             }
             else if (x < (chunkNumArray[0] + 0.3f) * width)
             {
                 RemoveMap(chunkNumArray[1]);
                 chunkNumArray[1] = chunkNumArray[0];
                 chunkNumArray[0] = chunkNumArray[0] - 1;
-                GenerateMap(chunkNumArray[0]);
+                GenerateMap(chunkNumArray[0], false);
+                Points.CurrentChunk = chunkNumArray[1];
             }
         }
     }
@@ -90,27 +91,29 @@ public class MapManager : MonoBehaviour
         mapRenderer.RemoveMap(width, height, chunkNum);
     }
 
-    private void GenerateMap(int chunkNum)
+    private void GenerateMap(int chunkNum, bool needItems = true)
     {
         Vector2 offset = new Vector2(chunkNum * width * pixelsInTile, 0);
         mapGenerator = new NoiseMapGenerator(width, height, new Vector2(chunkNum * width, 0), seed);
         int[,] wallsMap = mapGenerator.GenerateNoiseMap();
-
-        int[,] itemMap = new int[wallsMap.GetLength(0), wallsMap.GetLength(1)];
-        if (caveType == CaveType.Grohog)
+        int[,] itemMap = null;
+        if (needItems)
         {
-            itemGenerators = new ItemsGenerator[2];
+            itemMap = new int[wallsMap.GetLength(0), wallsMap.GetLength(1)];
+            if (caveType == CaveType.Grohog)
+            {
+                itemGenerators = new ItemsGenerator[2];
+            }
+            else
+            {
+                itemGenerators = new ItemsGenerator[4];
+            }
+            for (int i = 0; i < itemGenerators.Length; ++i)
+            {
+                itemGenerators[i] = new ItemsGenerator(width, height, ref wallsMap, itemsCount[i], ITEM_TYPES[i]);
+                itemMap = itemGenerators[i].GenerateItemMap(itemMap);
+            }
         }
-        else
-        {
-            itemGenerators = new ItemsGenerator[4];
-        }
-        for (int i = 0; i < itemGenerators.Length; ++i)
-        {
-            itemGenerators[i] = new ItemsGenerator(width, height, ref wallsMap, itemsCount[i], ITEM_TYPES[i]);
-            itemMap = itemGenerators[i].GenerateItemMap(itemMap);
-        }
-
         mapRenderer = FindObjectOfType<NoiseMapRenderer>();
         mapRenderer.RenderMap(width, height, wallsMap, itemMap, offset);
     }
