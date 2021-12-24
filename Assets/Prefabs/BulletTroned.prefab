@@ -129,9 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
-  speed: 50
+  speed: 30
   damage: 1
-  lifetime: 0.25
+  lifetime: 1.75
   wallTileName: wall
   sprite: {fileID: 8016077148749736332}
   particles: {fileID: 0}

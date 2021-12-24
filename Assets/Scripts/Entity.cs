@@ -60,13 +60,25 @@ public class Entity : MonoBehaviour
 
     private void AddHealth(float _delta)
     {
+        if (_delta < 0f)
+        {
+            ReduceHealth(_delta);
+            return;
+        }
         health += _delta;
         if (health > startHealth) health = startHealth;
-        if (isThisGameObjectPlayer) uiControl.healthIndicatorWidth = health / startHealth;
+        if (isThisGameObjectPlayer)
+        {
+            uiControl.healthIndicatorWidth = health / startHealth;
+            SoundManager soundManager = SoundManager.getInstance();
+            soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
+        }
     }
 
     private void ReduceHealth(float _delta)
     {
+        if (gameObject.tag == GlobalFields.grohogTag)
+            return;
         health -= _delta;
         if (isThisGameObjectPlayer)
         {
@@ -141,7 +153,7 @@ public class Entity : MonoBehaviour
                 if (tile != null && tile.name == gearTileName)
                 {
                     SoundManager soundManager = SoundManager.getInstance();
-                    soundManager.PlaySound(soundManager.gearPickUpClip, 0.8f);
+                    soundManager.PlaySound(soundManager.gearPickUpClip, 0.7f);
                     tilemap.SetTile(vector, floorTile);
                     gearsCount++;
                     gearsCounter.SetCount(gearsCount);
@@ -160,18 +172,29 @@ public class Entity : MonoBehaviour
 
     private void GetBonus()
     {
-        int bonusType = Random.Range(0, 1);
-        switch(bonusType)
+        int bonusType = Random.Range(0, 4);
+        Debug.Log($"Chest: {bonusType}");
+        SoundManager soundManager = SoundManager.getInstance();
+        switch (bonusType)
         {
             case 0:
-                {
-                    AddHealth(Random.Range(1, 4));
-                    break;
-                }
+                float health = Random.Range(-1f, 2f);
+                AddHealth(health);
+                break;
             case 1:
-                {
-                    break;
-                }
+                gearsCount++;
+                gearsCounter.SetCount(gearsCount);
+                soundManager.PlaySound(soundManager.gearPickUpClip, 0.7f);
+                break;
+            case 2:
+                Points.getCurrentInstance().pointCounter += Points.pointsFromChest;
+                break;
+            case 3:
+                break;
+            case 4:
+                radiationLevel = 0;
+                soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
+                break;
         }
     }
 }
@@ -179,5 +202,5 @@ public class Entity : MonoBehaviour
 enum BonusType
 {
     PlusHealth = 0,
-    RadiationShield = 1
+    gearAdd = 1
 }

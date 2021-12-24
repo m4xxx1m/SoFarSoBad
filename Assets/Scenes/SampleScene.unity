@@ -1025,7 +1025,7 @@ MonoBehaviour:
   chunkNumArray: 0000000001000000
   seed: 123
   mapRenderer: {fileID: 0}
-  itemsCount: 0f000000030000000300000003000000
+  itemsCount: 0f000000020000000200000005000000
 --- !u!4 &271239993
 Transform:
   m_ObjectHideFlags: 0
@@ -8290,6 +8290,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: 5a43560951ede8c4587dc02f9054d73e, type: 3}
   damageClip: {fileID: 8300000, guid: 9f1d60d8262144e47b9a5a4f5af24a03, type: 3}
   gearPickUpClip: {fileID: 8300000, guid: 3e6c5433da4e1c74b83f16871705cf05, type: 3}
+  powerUpClip: {fileID: 8300000, guid: 6249f93a34fd81e46a312e62c6df64b2, type: 3}
 --- !u!82 &605011080
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9060,6 +9061,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicClip: {fileID: 8300000, guid: a571daf2e554dc047a255a7125665217, type: 3}
+--- !u!1 &930508064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 930508066}
+  - component: {fileID: 930508065}
+  m_Layer: 0
+  m_Name: CustomCursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &930508065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930508064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a3dbc1bf8ca8749a9047feb0ba206c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseCursor: {fileID: 2800000, guid: 0cf81d3a2e0a0584c9af514dcbe0633f, type: 3}
+--- !u!4 &930508066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930508064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.511772, y: -0.56203777, z: -4.6738744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946522041
 GameObject:
   m_ObjectHideFlags: 0
