@@ -2,29 +2,32 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [Header("Music")]
-    [SerializeField] private AudioClip musicClip;
+    [Header("Sounds")]
+    [SerializeField] public AudioClip shootClip;
+    [SerializeField] public AudioClip deathClip;
+    [SerializeField] public AudioClip damageClip;
+    [SerializeField] public AudioClip gearPickUpClip;
+
+    private static SoundManager instance;
 
     private AudioSource musicAudioSource;
 
     private void Awake()
     {
+        instance = this;
         musicAudioSource = GetComponent<AudioSource>();
-        PlayMusic();
     }
 
-    private void PlayMusic()
+    public static SoundManager getInstance()
     {
-        musicAudioSource.loop = true;
-        musicAudioSource.clip = musicClip;
-        musicAudioSource.Play();
+        return instance;
     }
 
     public void PlaySound(AudioClip clipToPlay, float volume)
     {
-        AudioSource audioSource = null;
-        audioSource.clip = clipToPlay;
-        audioSource.volume = volume;
-        audioSource.Play();
+        musicAudioSource.clip = clipToPlay;
+        musicAudioSource.volume = volume;
+        musicAudioSource.loop = false;
+        musicAudioSource.Play();
     }
 }

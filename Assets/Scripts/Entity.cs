@@ -61,7 +61,12 @@ public class Entity : MonoBehaviour
     private void ReduceHealth(float _delta)
     {
         health -= _delta;
-        if (isThisGameObjectPlayer) uiControl.healthIndicatorWidth = health / startHealth;
+        if (isThisGameObjectPlayer)
+        {
+            uiControl.healthIndicatorWidth = health / startHealth;
+            SoundManager soundManager = SoundManager.getInstance();
+            soundManager.PlaySound(soundManager.damageClip, 0.3f);
+        }
 
         if (health <= 0)
         {
@@ -77,6 +82,8 @@ public class Entity : MonoBehaviour
         {
             uiControl.OpenGameOverMenu();
             Time.timeScale = 0f;
+            SoundManager soundManager = SoundManager.getInstance();
+            soundManager.PlaySound(soundManager.deathClip, 1f);
         }
         if(gameObject.tag == GlobalFields.tronedTag)
         {
@@ -112,9 +119,10 @@ public class Entity : MonoBehaviour
 
                 if (tile != null && tile.name == gearTileName)
                 {
+                    SoundManager soundManager = SoundManager.getInstance();
+                    soundManager.PlaySound(soundManager.gearPickUpClip, 0.8f);
                     tilemap.SetTile(vector, floorTile);
                     gearsCount++;
-
                     gearsCounter.SetCount(gearsCount);
                 }
             }

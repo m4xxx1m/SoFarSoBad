@@ -91,7 +91,7 @@ public class Radiation : MonoBehaviour
                     }
                     float k2 = 1f - distance / circleColliderRadius;
                     float radiationForPlayer = deltaRadiation * k1 * k2;
-                    Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}");
+                    Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}, {radiationForPlayer}");
                     // в принципе здесь твоя часть заканчивается
 
                     Entity entity = playerGameObject.GetComponent<Entity>();
