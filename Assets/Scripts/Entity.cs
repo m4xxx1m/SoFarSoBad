@@ -19,6 +19,7 @@ public class Entity : MonoBehaviour
     private Tilemap tilemap;
 
     [SerializeField] private Tile floorTile;
+    [SerializeField] private Tile openChestTile;
     private string gearTileName = GlobalFields.gearTileName;
 
     [SerializeField] private GearCounter gearsCounter;
@@ -55,6 +56,7 @@ public class Entity : MonoBehaviour
     private void AddHealth(float _delta)
     {
         health += _delta;
+        if (health > startHealth) health = startHealth;
         if (isThisGameObjectPlayer) uiControl.healthIndicatorWidth = health / startHealth;
     }
 
@@ -117,7 +119,36 @@ public class Entity : MonoBehaviour
 
                     gearsCounter.SetCount(gearsCount);
                 }
+
+                if (tile != null && tile.name == GlobalFields.chestTileName)
+                {
+                    tilemap.SetTile(vector, openChestTile);
+                    GetBonus();
+                }
             }
         }
     }
+
+    private void GetBonus()
+    {
+        int bonusType = Random.Range(0, 1);
+        switch(bonusType)
+        {
+            case 0:
+                {
+                    AddHealth(Random.Range(1, 4));
+                    break;
+                }
+            case 1:
+                {
+                    break;
+                }
+        }
+    }
+}
+
+enum BonusType
+{
+    PlusHealth = 0,
+    RadiationShield = 1
 }

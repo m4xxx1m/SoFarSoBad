@@ -16,8 +16,9 @@ using System.Threading.Tasks;
         public const string borderTileName = "black_tile";
         public const string floorTileName = "floor";
         public const string gearTileName = "gear";
+        public const string chestTileName = "chest";
 
-        public const string playerTag = "Player";
+    public const string playerTag = "Player";
         public const string enemyTag = "Enemy";
         public const string bulletTag = "Bullet";
         public const string tilemapTag = "TileMap";

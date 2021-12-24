@@ -289,6 +289,7 @@ MonoBehaviour:
   timeForNullRadiation: 5
   isInRadiation: 0
   floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
+  openChestTile: {fileID: 11400000, guid: ee1122d2d38db76429f8b629de9c47b8, type: 2}
   gearsCounter: {fileID: 0}
 --- !u!114 &6661920066921763161
 MonoBehaviour:

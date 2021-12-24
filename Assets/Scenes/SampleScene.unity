@@ -1015,7 +1015,7 @@ MonoBehaviour:
   wallTile: {fileID: 11400000, guid: 3e7aebd070a5f7d4b9c1c6e5678df7f2, type: 2}
   floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
   enemieTile: {fileID: 11400000, guid: 27250446876a51a419bfb5abddce55f2, type: 2}
-  chestTile: {fileID: 11400000, guid: e61d3c64e37cc7b4f936b5e480711f07, type: 2}
+  chestTile: {fileID: 11400000, guid: 85ee898ab33b29d4395cfdc28b5464be, type: 2}
   gearTile: {fileID: 11400000, guid: c31d3395804e255458e672f87b6bdb13, type: 2}
   grohogCellTile: {fileID: 11400000, guid: 92dc36b4f14e26a4faca70f4a605f679, type: 2}
 --- !u!114 &271239992
@@ -8182,6 +8182,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8267,6 +8268,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &655355365
 GameObject:
   m_ObjectHideFlags: 0
