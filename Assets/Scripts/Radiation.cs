@@ -81,13 +81,13 @@ public class Radiation : MonoBehaviour
                                 TileBase tile = tilemap.GetTile(tilemap.WorldToCell(hitPosition));
                                 Vector3 cellCenter = tilemap.GetCellCenterWorld(tilemap.WorldToCell(hitPosition));
                                 if (tile == null) continue;
-                                if (tile.name == wallTileName && !foundTiles.Contains(cellCenter)) //&& Vector2.Distance(playerGameObject.transform.position, cellCenter) <= circleColliderRadius)
+                                if (tile.name == wallTileName && !foundTiles.Contains(cellCenter))
                                 {
                                     Debug.Log(cellCenter);
                                     foundTiles.Add(cellCenter);
                                     hitsCount++;
                                 }
-                                else if (tile.name == borderTileName && !foundTiles.Contains(cellCenter))// && Vector2.Distance(playerGameObject.transform.position, cellCenter) <= circleColliderRadius)
+                                else if (tile.name == borderTileName && !foundTiles.Contains(cellCenter))
                                 {
                                     Debug.Log(cellCenter);
                                     foundTiles.Add(cellCenter);
