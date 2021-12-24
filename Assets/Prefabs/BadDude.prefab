@@ -136,7 +136,7 @@ MonoBehaviour:
   timeForDisable: 5
   haveRadiation: 1
   circleColliderRadius: 8
-  deltaRadiation: 5
+  deltaRadiation: 3
   timeBeforeRadiationDamage: 1
   BorderTilesCoeff: 3
   isCoroutineStarted: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 public class Radiation : MonoBehaviour
 {
@@ -49,8 +50,9 @@ public class Radiation : MonoBehaviour
                     if (timeFromLastRadiationDamage < timeBeforeRadiationDamage) return;
                     else timeFromLastRadiationDamage = 0f;
                     GameObject playerGameObject = collision.gameObject;
-                    Vector2 direction = (playerGameObject.transform.position - transform.position).normalized;
+                    Vector3 direction = playerGameObject.transform.position - transform.position;
                     RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, circleColliderRadius);
+                    Debug.DrawRay(transform.position, direction);
                     int hitsCount = 0; // количество пересечений со стенами
                     float distance = 0f; // дистанция до игрока
                     foreach (RaycastHit2D hit in hits)
@@ -68,28 +70,38 @@ public class Radiation : MonoBehaviour
                         Vector3 hitPosition = Vector3.zero;
                         if (collider.gameObject == tilemapGameObject && hit.distance < distance)
                         {
-                            hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
-                            hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                            TileBase tile = tilemap.GetTile(tilemap.WorldToCell(hitPosition));
-                            if (tile.name == wallTileName)
+                            List<Vector3> foundTiles = new List<Vector3>();
+                            Debug.DrawRay(hit.point, direction, Color.red, 6f);
+                            for (float a = 0f; a <= 1f; a+=0.05f)
                             {
-                                hitsCount++;
-                            }
-                            else if (tile.name == borderTileName)
-                            {
-                                hitsCount += BorderTilesCoeff;
+                                Vector2 vector = Vector2.Lerp(hit.point, playerGameObject.transform.position, a);
+                                //hit.normal.Set(hit.normal.x + deltaX, hit.normal.y + deltaY);
+                                hitPosition.x = vector.x;
+                                hitPosition.y = vector.y;
+                                TileBase tile = tilemap.GetTile(tilemap.WorldToCell(hitPosition));
+                                Vector3 cellCenter = tilemap.GetCellCenterWorld(tilemap.WorldToCell(hitPosition));
+                                if (tile == null) continue;
+                                if (tile.name == wallTileName && !foundTiles.Contains(cellCenter)) //&& Vector2.Distance(playerGameObject.transform.position, cellCenter) <= circleColliderRadius)
+                                {
+                                    Debug.Log(cellCenter);
+                                    foundTiles.Add(cellCenter);
+                                    hitsCount++;
+                                }
+                                else if (tile.name == borderTileName && !foundTiles.Contains(cellCenter))// && Vector2.Distance(playerGameObject.transform.position, cellCenter) <= circleColliderRadius)
+                                {
+                                    Debug.Log(cellCenter);
+                                    foundTiles.Add(cellCenter);
+                                    hitsCount += BorderTilesCoeff;
+                                }
                             }
                         }
                     }
                     Debug.Log(this.name + " " + "Distance to player: " + distance);
-                    
+
                     // Todo: вот сюда вставляешь все свои формулки для коэффицинтов
-                    float k1 = 1f;
-                    for (int i = 0; i < hitsCount; ++i)
-                    {
-                        k1 *= 0.8f;
-                    }
-                    float k2 = 1.1f - distance / circleColliderRadius;
+                    float k1 = Mathf.Pow(0.5f, hitsCount);
+                    float k2 = 1f - distance / circleColliderRadius;
+                    if(distance == 0) k2 = 0;
                     float radiationForPlayer = deltaRadiation * k1 * k2;
                     Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}, {radiationForPlayer}");
                     // в принципе здесь твоя часть заканчивается
