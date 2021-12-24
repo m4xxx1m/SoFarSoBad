@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -50,6 +48,7 @@ public class MapManager : MonoBehaviour
             GenerateMap(chunkNumArray[i]);
         FreeSpaceForSpawn();
         instance = this;
+        Points.CurrentChunk = 1;
     }
 
     /*private void FixedUpdate()
@@ -74,6 +73,7 @@ public class MapManager : MonoBehaviour
                 chunkNumArray[0] = chunkNumArray[1];
                 chunkNumArray[1] = chunkNumArray[1] + 1;
                 GenerateMap(chunkNumArray[1]);
+                Points.CurrentChunk = chunkNumArray[1];
             }
             else if (x < (chunkNumArray[0] + 0.3f) * width)
             {
@@ -81,6 +81,7 @@ public class MapManager : MonoBehaviour
                 chunkNumArray[1] = chunkNumArray[0];
                 chunkNumArray[0] = chunkNumArray[0] - 1;
                 GenerateMap(chunkNumArray[0], false);
+                Points.CurrentChunk = chunkNumArray[1];
             }
         }
     }

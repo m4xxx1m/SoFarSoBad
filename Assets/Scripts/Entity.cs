@@ -21,6 +21,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private Tile floorTile;
     private string gearTileName = GlobalFields.gearTileName;
 
+    // [SerializeField] private PointCounter pointCounter;
     [SerializeField] private GearCounter gearsCounter;
     private int gearsCount = 0;
 
@@ -38,6 +39,10 @@ public class Entity : MonoBehaviour
         }
 
         isThisGameObjectPlayer = gameObject.tag == GlobalFields.playerTag;
+        if (isThisGameObjectPlayer)
+        {
+            new Points();
+        }
     }
 
     public void AddRadiation(float radLevel)
@@ -84,11 +89,25 @@ public class Entity : MonoBehaviour
             Time.timeScale = 0f;
             SoundManager soundManager = SoundManager.getInstance();
             soundManager.PlaySound(soundManager.deathClip, 1f);
+            // Сделать отображение очков и отправить их в таблицу
+            
         }
         if(gameObject.tag == GlobalFields.tronedTag)
         {
             uiControl.OpenWinMenu();
             Time.timeScale = 0f;
+            Points.getCurrentInstance().pointCounter += Points.pointsForTroned;
+            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+        }
+        if (gameObject.tag == GlobalFields.vrudniTag)
+        {
+            Points.getCurrentInstance().pointCounter += (int)Mathf.Sqrt(Points.CurrentChunk) * Points.pointsForVruden;
+            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+        }
+        if (gameObject.tag == GlobalFields.grohogTag)
+        {
+            Points.getCurrentInstance().pointCounter += (int)Mathf.Sqrt(Points.CurrentChunk) * Points.pointsForGrohog;
+            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
         }
         Destroy(gameObject);
     }
@@ -124,6 +143,8 @@ public class Entity : MonoBehaviour
                     tilemap.SetTile(vector, floorTile);
                     gearsCount++;
                     gearsCounter.SetCount(gearsCount);
+                    Points.getCurrentInstance().pointCounter += Points.pointsForGear * gearsCount;
+                    Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
                 }
             }
         }
