@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
 
     // [SerializeField] private PointCounter pointCounter;
     [SerializeField] private GearCounter gearsCounter;
+    [SerializeField] private PointCounter pointCounter;
     private int gearsCount = 0;
 
     //public float RadiationLevel { get => radiationLevel; set => radiationLevel = value; }
@@ -43,6 +44,7 @@ public class Entity : MonoBehaviour
         if (isThisGameObjectPlayer)
         {
             new Points();
+            Points.Counter = pointCounter;
         }
     }
 
@@ -110,18 +112,21 @@ public class Entity : MonoBehaviour
         {
             uiControl.OpenWinMenu();
             Time.timeScale = 0f;
-            Points.getCurrentInstance().pointCounter += Points.pointsForTroned;
-            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+            //Points.getCurrentInstance().pointCounter += Points.pointsForTroned;
+            //Points.Counter.SetCount();
+            //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
         }
         if (gameObject.tag == GlobalFields.vrudniTag)
         {
             Points.getCurrentInstance().pointCounter += (int)Mathf.Sqrt(Points.CurrentChunk) * Points.pointsForVruden;
-            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+            Points.Counter.SetCount();
+            //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
         }
         if (gameObject.tag == GlobalFields.grohogTag)
         {
             Points.getCurrentInstance().pointCounter += (int)Mathf.Sqrt(Points.CurrentChunk) * Points.pointsForGrohog;
-            Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+            Points.Counter.SetCount();
+            //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
         }
         Destroy(gameObject);
     }
@@ -158,7 +163,8 @@ public class Entity : MonoBehaviour
                     gearsCount++;
                     gearsCounter.SetCount(gearsCount);
                     Points.getCurrentInstance().pointCounter += Points.pointsForGear * gearsCount;
-                    Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
+                    Points.Counter.SetCount();
+                    //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
                 }
 
                 if (tile != null && tile.name == GlobalFields.chestTileName)
@@ -188,6 +194,7 @@ public class Entity : MonoBehaviour
                 break;
             case 2:
                 Points.getCurrentInstance().pointCounter += Points.pointsFromChest;
+                Points.Counter.SetCount();
                 break;
             case 3:
                 break;
