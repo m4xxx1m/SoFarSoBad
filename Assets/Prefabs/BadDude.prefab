@@ -74,6 +74,7 @@ MonoBehaviour:
   floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
   openChestTile: {fileID: 0}
   gearsCounter: {fileID: 0}
+  pointCounter: {fileID: 0}
 --- !u!61 &8326529139298739800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5955067173668892641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.832, z: 0}
   m_LocalScale: {x: 0.20178288, y: 0.20178288, z: 0.10089144}
   m_Children: []
   m_Father: {fileID: 24387948629398644}
@@ -237,7 +238,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8951966234713632379
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.75991255, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.6
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000b1b4f5e56b8c71e4
   m_LightCookieSprite: {fileID: 0}
@@ -296,8 +297,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 3
+  m_PointLightInnerRadius: 2
+  m_PointLightOuterRadius: 8
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

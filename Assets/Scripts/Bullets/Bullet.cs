@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private ParticleSystem particles;
     [SerializeField] private ParticleSystem particles2;
+    [SerializeField] private GameObject lighting;
 
     private void Awake()
     {
@@ -43,13 +44,7 @@ public class Bullet : MonoBehaviour
             
             if(lifeTimer >= lifetime)
             {
-                rb.isKinematic = true;
-                sprite.color = new Color(1f, 1f, 1f, 0f);
-                rb.velocity = Vector2.zero;
-
-                particles.Play();
-                particles2.Play();
-                Destroy(gameObject, particles.main.duration);
+                Explode();
             }
         }
     }
@@ -74,10 +69,16 @@ public class Bullet : MonoBehaviour
             }
         }
 
+        Explode();
+    }
+
+    private void Explode()
+    {
         rb.isKinematic = true;
         sprite.color = new Color(1f, 1f, 1f, 0f);
         rb.velocity = Vector2.zero;
 
+        lighting.SetActive(false);
         particles.Play();
         particles2.Play();
         Destroy(gameObject, particles.main.duration);

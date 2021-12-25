@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class DialogueControl : MonoBehaviour
 {
-    private string nextSceneName = GlobalFields.gameplaySceneName;
+    [SerializeField] private bool toTroned = false;
+    private string nextSceneName;
 
-    public enum Speaker {HERO, VRUDNI};
+    public enum Speaker {HERO, VRUDNI, TRONED};
 
     [Serializable] public struct Line
 	{
@@ -36,6 +37,11 @@ public class DialogueControl : MonoBehaviour
 
     private void Awake()
     {
+        if(toTroned)
+            nextSceneName = GlobalFields.fightWithTronedSceneName;
+        else
+            nextSceneName = GlobalFields.gameplaySceneName;
+
         currentLine = 0;
         SetLine(lines[0]);
     }
@@ -59,6 +65,12 @@ public class DialogueControl : MonoBehaviour
             
             case Speaker.VRUDNI:
                 speakerText.text       = "Врудни";
+                speakerText.alignment  = TextAnchor.MiddleRight;
+                dialogueText.alignment = TextAnchor.UpperRight;
+                break;
+                
+            case Speaker.TRONED:
+                speakerText.text       = "Тронед";
                 speakerText.alignment  = TextAnchor.MiddleRight;
                 dialogueText.alignment = TextAnchor.UpperRight;
                 break;

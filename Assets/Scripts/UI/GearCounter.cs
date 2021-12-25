@@ -20,11 +20,11 @@ public class GearCounter : MonoBehaviour
 
     public void SetCount(int _count)
     {
-        if(_count >=  gearsToWin - 1)
+        if(_count >= gearsToWin - 1)
         {
-            SceneManager.LoadScene(GlobalFields.fightWithTronedSceneName, LoadSceneMode.Single);
+            SceneManager.LoadScene(GlobalFields.dialogueWithTronedSceneName, LoadSceneMode.Single);
         }
         Debug.Log("_count " + _count);
-        textField.text = _count.ToString();
+        textField.text = _count.ToString() + "/" + gearsToWin.ToString();
     }
 }

@@ -112,6 +112,7 @@ public class Entity : MonoBehaviour
         {
             uiControl.OpenWinMenu();
             Time.timeScale = 0f;
+            uiControl.GoToScoretable();
             //Points.getCurrentInstance().pointCounter += Points.pointsForTroned;
             //Points.Counter.SetCount();
             //Debug.Log($"{Points.getCurrentInstance().pointCounter} points");
