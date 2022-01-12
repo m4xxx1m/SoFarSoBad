@@ -45,8 +45,12 @@ public class EnemyControler
     public void Move(Vector2 targetPoint, float speed)
     {
         //enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, targetPoint, speed);
-        Vector2 newPosition = Vector2.MoveTowards(enemyTransform.position, targetPoint, Time.deltaTime * speed);
-        rigidbody.MovePosition(newPosition);
+
+        /*Vector2 newPosition = Vector2.MoveTowards(enemyTransform.position, targetPoint, Time.deltaTime * speed);
+        rigidbody.MovePosition(newPosition);*/
+
+        enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, targetPoint, speed);
+
         //movingStrategy = new MovingAtPoint(targetPoint, 0.1f);
         //movingStrategy.Move(enemyTransform);
     }

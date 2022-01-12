@@ -61,6 +61,8 @@ public class TronedAI : MonoBehaviour
         Debug.Log("Shoot!");
         Vector3 perpendicular = Vector3.Cross(transform.position - new Vector3(targetPoint.x, targetPoint.y, 0), transform.forward);
         Quaternion rotation = Quaternion.LookRotation(transform.forward, perpendicular);
+        float missedBulletRotation = rotation.eulerAngles.z + Random.Range(-20f, 20f);
+        rotation = Quaternion.Euler(0f, 0f, missedBulletRotation);
         GameObject shot = Instantiate(bullet, transform.position, rotation);
     }
 }
