@@ -27,11 +27,14 @@ public class Movement : MonoBehaviour
     {
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        animator.SetBool("Walk", (input.x != 0 || input.y != 0));
-
-        if(input.x != 0)
+        if (Time.timeScale > 0f)
         {
-            dud.flipX = input.x < 0;
+            animator.SetBool("Walk", (input.x != 0 || input.y != 0));
+
+            if (input.x != 0)
+            {
+                dud.flipX = input.x < 0;
+            }
         }
         
         //dash

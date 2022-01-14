@@ -455,8 +455,7 @@ MonoBehaviour:
   height: 50
   chunkNumArray: 0000000001000000
   seed: 123
-  mapRenderer: {fileID: 0}
-  itemsCount: 0f000000020000000200000005000000
+  itemsCount: 0d000000020000000200000004000000
 --- !u!4 &271239993
 Transform:
   m_ObjectHideFlags: 0
@@ -8726,6 +8725,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5039484339209441625, guid: 05893226f9c085c4392fba2ddb92f801,
+        type: 3}
+      propertyPath: health
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5039484339209441625, guid: 05893226f9c085c4392fba2ddb92f801,
         type: 3}
       propertyPath: gearsCounter

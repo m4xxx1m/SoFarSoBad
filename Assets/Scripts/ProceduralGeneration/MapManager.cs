@@ -16,7 +16,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private int seed;
 
     [SerializeField] private NoiseMapGenerator mapGenerator;
-    [SerializeField] private NoiseMapRenderer mapRenderer;
+    private NoiseMapRenderer mapRenderer;
 
     public static MapManager GetInstance()
     {
@@ -51,11 +51,10 @@ public class MapManager : MonoBehaviour
         Points.CurrentChunk = 1;
     }
 
-    /*private void FixedUpdate()
+    private void Awake()
     {
-        offset.x -= 10;
-        GenerateMap();
-    }*/
+        mapRenderer = FindObjectOfType<NoiseMapRenderer>();
+    }
 
     private int GenerateSeed()
     {
@@ -72,6 +71,11 @@ public class MapManager : MonoBehaviour
                 RemoveMap(chunkNumArray[0]);
                 chunkNumArray[0] = chunkNumArray[1];
                 chunkNumArray[1] = chunkNumArray[1] + 1;
+                itemsCount[0] += 1;
+                if (caveType == CaveType.Vrudni)
+                {
+                    itemsCount[3] += (chunkNumArray[1] % 2 == 0 ? 1 : 0);
+                }
                 GenerateMap(chunkNumArray[1]);
                 Points.CurrentChunk = chunkNumArray[1];
             }
@@ -114,7 +118,7 @@ public class MapManager : MonoBehaviour
                 itemMap = itemGenerators[i].GenerateItemMap(itemMap);
             }
         }
-        mapRenderer = FindObjectOfType<NoiseMapRenderer>();
+        
         mapRenderer.RenderMap(width, height, wallsMap, itemMap, offset);
     }
 

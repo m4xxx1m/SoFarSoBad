@@ -18,12 +18,15 @@ public class BigShot : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Time.timeScale > 0f)
         {
-            SoundManager soundManager = SoundManager.getInstance();
-            soundManager.PlaySound(soundManager.shootClip, 0.2f);
-            GameObject shot = Instantiate(bullet, turret.transform.position, turret.transform.rotation);
-            animator.SetTrigger("Shoot");
+            if (Input.GetMouseButtonDown(0))
+            {
+                SoundManager soundManager = SoundManager.getInstance();
+                soundManager.PlaySound(soundManager.shootClip, 0.2f);
+                GameObject shot = Instantiate(bullet, turret.transform.position, turret.transform.rotation);
+                animator.SetTrigger("Shoot");
+            }
         }
     }
 }

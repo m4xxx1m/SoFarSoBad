@@ -476,6 +476,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5039484339209441625, guid: 05893226f9c085c4392fba2ddb92f801,
         type: 3}
+      propertyPath: health
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039484339209441625, guid: 05893226f9c085c4392fba2ddb92f801,
+        type: 3}
       propertyPath: gearsCounter
       value: 
       objectReference: {fileID: 654254121}
@@ -1773,9 +1778,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cacda9290f09d4881ca0b9884a2bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimeBetweenShoutAround: 5
-  maxTimeBetweenShoutAround: 9
-  timeBetweenShooting: 3
+  minTimeBetweenShoutAround: 3
+  maxTimeBetweenShoutAround: 5
+  timeBetweenShooting: 1.5
+  constantTimeBetweenShooting: 1.5
+  deltaTimeBetweenShooting: 1
   bullet: {fileID: 8389619249540787188, guid: f0962a81b0e0fb14cac3366c5d5c720e, type: 3}
   player: {fileID: 1031931472}
 --- !u!114 &1883111508
@@ -1790,7 +1797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81269fa9541a78749981e9f1bda59f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 85
+  health: 100
   radiationLevel: 0
   maxRadiationLevel: 20
   timeForNullRadiation: 5

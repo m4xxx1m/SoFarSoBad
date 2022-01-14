@@ -13,9 +13,12 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+        if (Time.timeScale > 0f)
+        {
+            Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 perpendicular = Vector3.Cross(transform.position - mousePos, transform.forward);
-		transform.rotation = Quaternion.LookRotation(transform.forward, perpendicular);
+            Vector3 perpendicular = Vector3.Cross(transform.position - mousePos, transform.forward);
+            transform.rotation = Quaternion.LookRotation(transform.forward, perpendicular);
+        }
     }
 }

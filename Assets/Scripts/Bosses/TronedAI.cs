@@ -7,6 +7,8 @@ public class TronedAI : MonoBehaviour
     [SerializeField] private int minTimeBetweenShoutAround;
     [SerializeField] private int maxTimeBetweenShoutAround;
     [SerializeField] private float timeBetweenShooting;
+    [SerializeField] private float constantTimeBetweenShooting;
+    [SerializeField] private float deltaTimeBetweenShooting;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject player;
     private ShoutState shoutState = ShoutState.AtPlayer;
@@ -16,6 +18,7 @@ public class TronedAI : MonoBehaviour
 
     void Start()
     {
+        timeBetweenShooting = constantTimeBetweenShooting;
         StartCoroutine(ChangeStateToShoutAround());
     }
 
@@ -30,12 +33,14 @@ public class TronedAI : MonoBehaviour
                     {
                         Shout(player.transform.position);
                         time = 0f;
+                        timeBetweenShooting = constantTimeBetweenShooting + Random.Range(-deltaTimeBetweenShooting,
+                            deltaTimeBetweenShooting);
                     }
                     break;
                 }
             case ShoutState.Around:
             {
-                    for (int i = 0; i < 360; i += Random.Range(10, 37))
+                    for (int i = 0; i < 360; i += Random.Range(6, 24))
                 {
                     float dx = radius * Mathf.Cos(i * Mathf.Deg2Rad);
                     float dy = radius * Mathf.Sin(i * Mathf.Deg2Rad);

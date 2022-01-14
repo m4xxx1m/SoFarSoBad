@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5716586405723064643}
   - component: {fileID: 3126204425695709163}
   m_Layer: 8
-  m_Name: BadDude
+  m_Name: Grohog
   m_TagString: Grohog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
