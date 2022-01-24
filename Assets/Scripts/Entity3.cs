@@ -1,59 +1,54 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Entity : MonoBehaviour
+public class Entity3 : MonoBehaviour
 {
-    //private bool isThisGameObjectPlayer;
+    private bool isThisGameObjectPlayer;
 
-    [SerializeField] protected float health = 3f;
-    /*[SerializeField] private float radiationLevel = 0f;
-    [SerializeField] private float maxRadiationLevel = 20f;*/
-    /*[SerializeField] private float timeForNullRadiation = 5;*/
+    [SerializeField] private float health = 3f;
+    [SerializeField] private float radiationLevel = 0f;
+    [SerializeField] private float maxRadiationLevel = 20f;
+    [SerializeField] private float timeForNullRadiation = 5;
     [SerializeField] public bool isInRadiation = false;
     
-    protected UIControl uiControl;
-    protected float startHealth;
+    private UIControl uiControl;
+    private float startHealth;
 
-    /*private GameObject tilemapGameObject;*/
-    /*private Tilemap tilemap;*/
+    private GameObject tilemapGameObject;
+    private Tilemap tilemap;
 
-    /*[SerializeField] private Tile floorTile;
-    [SerializeField] private Tile openChestTile;*/
-    /*private string gearTileName = GlobalFields.gearTileName;*/
+    [SerializeField] private Tile floorTile;
+    [SerializeField] private Tile openChestTile;
+    private string gearTileName = GlobalFields.gearTileName;
 
     // [SerializeField] private PointCounter pointCounter;
-    /*[SerializeField] private GearCounter gearsCounter;
+    [SerializeField] private GearCounter gearsCounter;
     [SerializeField] private PointCounter pointCounter;
-    private int gearsCount = 0;*/
+    private int gearsCount = 0;
 
     //public float RadiationLevel { get => radiationLevel; set => radiationLevel = value; }
 
-    private void Awake()
-    {
-        uiControl = GameObject.FindGameObjectsWithTag(GlobalFields.canvasTag)[0].GetComponent<UIControl>();
-    }
-
-    public virtual void Start()
+    private void Start()
     {
         startHealth = health;
-        
+        uiControl = GameObject.FindGameObjectsWithTag(GlobalFields.canvasTag)[0].GetComponent<UIControl>();
 
-        /*if (GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag).Length > 0)
+        if (GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag).Length > 0)
         {
             tilemapGameObject = GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag)[0];
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
-        }*/
+        }
 
-        //isThisGameObjectPlayer = gameObject.tag == GlobalFields.playerTag;
-        /*if (isThisGameObjectPlayer)
+        isThisGameObjectPlayer = gameObject.tag == GlobalFields.playerTag;
+        if (isThisGameObjectPlayer)
         {
-            
-        }*/
+            new Points();
+            Points.Counter = pointCounter;
+        }
     }
 
-    /*public void AddRadiation(float radLevel)
+    public void AddRadiation(float radLevel)
     {
         radiationLevel += radLevel;
         if (isThisGameObjectPlayer) uiControl.radiationIndicatorWidth = radiationLevel / maxRadiationLevel;
@@ -63,9 +58,9 @@ public class Entity : MonoBehaviour
             gameObject.SendMessage("Death by radiation", null, SendMessageOptions.DontRequireReceiver);
             Death();
         }
-    }*/
+    }
 
-    protected void AddHealth(float _delta)
+    private void AddHealth(float _delta)
     {
         if (_delta < 0f)
         {
@@ -74,25 +69,25 @@ public class Entity : MonoBehaviour
         }
         health += _delta;
         if (health > startHealth) health = startHealth;
-        /*if (isThisGameObjectPlayer)
+        if (isThisGameObjectPlayer)
         {
             uiControl.healthIndicatorWidth = health / startHealth;
             SoundManager soundManager = SoundManager.getInstance();
             soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
-        }*/
+        }
     }
 
-    protected void ReduceHealth(float _delta)
+    private void ReduceHealth(float _delta)
     {
         if (gameObject.tag == GlobalFields.grohogTag)
             return;
         health -= _delta;
-        /*if (isThisGameObjectPlayer)
+        if (isThisGameObjectPlayer)
         {
             uiControl.healthIndicatorWidth = health / startHealth;
             SoundManager soundManager = SoundManager.getInstance();
             soundManager.PlaySound(soundManager.damageClip, 0.3f);
-        }*/
+        }
 
         if (health <= 0)
         {
@@ -102,16 +97,17 @@ public class Entity : MonoBehaviour
         }
     }
     
-    protected void Death()
+    private void Death()
     {
-        /*if (isThisGameObjectPlayer)
+        if (isThisGameObjectPlayer)
         {
             uiControl.OpenGameOverMenu();
             Time.timeScale = 0f;
             SoundManager soundManager = SoundManager.getInstance();
             soundManager.PlaySound(soundManager.deathClip, 1f);
-
-        }*/
+            // ������� ����������� ����� � ��������� �� � �������
+            
+        }
         if(gameObject.tag == GlobalFields.tronedTag)
         {
             uiControl.OpenWinMenu();
@@ -136,7 +132,7 @@ public class Entity : MonoBehaviour
         Destroy(gameObject);
     }
 
-    /*public IEnumerator NullRadiationAfterSomeSeconds()
+    public IEnumerator NullRadiationAfterSomeSeconds()
     {
         yield return new WaitForSeconds(timeForNullRadiation);
         if (!isInRadiation)
@@ -144,13 +140,13 @@ public class Entity : MonoBehaviour
             this.radiationLevel = 0f;
             uiControl.radiationIndicatorWidth = 0f;
         }
-    }*/
+    }
 
-    /*protected void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (!isThisGameObjectPlayer) return;
+        if (!isThisGameObjectPlayer) return;
         
-        /*Vector3 hitPosition = Vector3.zero;
+        Vector3 hitPosition = Vector3.zero;
         if (tilemap != null && tilemapGameObject == collision.gameObject)
         {
             foreach (ContactPoint2D hit in collision.contacts)
@@ -179,9 +175,9 @@ public class Entity : MonoBehaviour
                 }
             }
         }
-    }*/
+    }
 
-    /*private void GetBonus()
+    private void GetBonus()
     {
         int bonusType = Random.Range(0, 4);
         Debug.Log($"Chest: {bonusType}");
@@ -208,5 +204,5 @@ public class Entity : MonoBehaviour
                 soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
                 break;
         }
-    }*/
+    }
 }

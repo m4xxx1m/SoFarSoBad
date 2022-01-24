@@ -26,10 +26,7 @@ public class Points
 
     public Points()
     {
-        if (instanceList == null)
-        {
-            instanceList = new List<Points>();
-        }
+        instanceList ??= new List<Points>();
         instanceList.Add(this);
     }
 }

@@ -53,8 +53,8 @@ public class Radiation : MonoBehaviour
                     Vector3 direction = playerGameObject.transform.position - transform.position;
                     RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, circleColliderRadius);
                     Debug.DrawRay(transform.position, direction);
-                    int hitsCount = 0; // количество пересечений со стенами
-                    float distance = 0f; // дистанция до игрока
+                    int hitsCount = 0; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                    float distance = 0f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                     foreach (RaycastHit2D hit in hits)
                     {
                         Collider2D collider = hit.collider;
@@ -98,15 +98,15 @@ public class Radiation : MonoBehaviour
                     }
                     Debug.Log(this.name + " " + "Distance to player: " + distance);
 
-                    // Todo: вот сюда вставляешь все свои формулки для коэффицинтов
+                    // Todo: пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     float k1 = Mathf.Pow(0.5f, hitsCount);
                     float k2 = 1f - distance / circleColliderRadius;
                     if(distance == 0) k2 = 0;
                     float radiationForPlayer = deltaRadiation * k1 * k2;
                     Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}, {radiationForPlayer}");
-                    // в принципе здесь твоя часть заканчивается
+                    // пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-                    Entity entity = playerGameObject.GetComponent<Entity>();
+                    Player entity = playerGameObject.GetComponent<Player>();
                     //entity.RadiationLevel += radiationForPlayer;
                     entity.AddRadiation(radiationForPlayer);
                     entity.isInRadiation = true;
@@ -154,7 +154,8 @@ public class Radiation : MonoBehaviour
                 }
                 break;
             case GlobalFields.playerTag:
-                Entity entity = collision.gameObject.GetComponent<Entity>();
+                // РёСЃРїСЂР°РІРёС‚СЊ, Р·Р°РјРµРЅРёС‚СЊ РЅР° events
+                Player entity = collision.gameObject.GetComponent<Player>();
                 entity.isInRadiation = false;
                 StartCoroutine(entity.NullRadiationAfterSomeSeconds());
                 break;

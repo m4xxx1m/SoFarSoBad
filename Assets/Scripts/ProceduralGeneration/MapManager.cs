@@ -5,7 +5,7 @@ public class MapManager : MonoBehaviour
     public static MapManager instance;
 
     [SerializeField] public const int tilesBeyoundMap = 10;
-    [SerializeField] public const int pixelsInTile = 100; // Количество пикселей в одном блоке
+    [SerializeField] public const int pixelsInTile = 100; // РљРѕР»РёС‡РµСЃС‚РІРѕ РїРёРєСЃРµР»РµР№ РІ РѕРґРЅРѕРј Р±Р»РѕРєРµ
     [SerializeField] public const int freeSpaceForSpawn = 5;
 
     [SerializeField] public CaveType caveType;
@@ -24,10 +24,10 @@ public class MapManager : MonoBehaviour
     }
 
     /*
-     * 0 - враги
-     * 1 - сундуки
-     * 2 - детали
-     * 3 - клетки с Грохогами
+     * 0 - РІСЂР°РіРё
+     * 1 - СЃСѓРЅРґСѓРєРё
+     * 2 - РґРµС‚Р°Р»Рё
+     * 3 - РєР»РµС‚РєРё СЃ Р“СЂРѕС…РѕРіР°РјРё
      */
     [SerializeField] private ItemsGenerator[] itemGenerators;
     [SerializeField] private int[] itemsCount = new int[4];
