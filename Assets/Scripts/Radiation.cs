@@ -9,11 +9,11 @@ public class Radiation : MonoBehaviour
     [SerializeField] private bool haveRadiation;
     [SerializeField] private float circleColliderRadius;
     [SerializeField] private float deltaRadiation;
-    [SerializeField] private float timeBeforeRadiationDamage;
+    [SerializeField] private float timeBeforeRadiationCount;
 
     private GameObject tilemapGameObject;
     private Tilemap tilemap;
-    private float timeFromLastRadiationDamage = 0f;
+    private float timeFromLastRadiationCount = 0f;
 
     private string wallTileName = GlobalFields.wallTileName;
     private string borderTileName = GlobalFields.borderTileName;
@@ -21,6 +21,11 @@ public class Radiation : MonoBehaviour
     [SerializeField] private int BorderTilesCoeff = 3;
 
     [SerializeField] private bool isCoroutineStarted = false;
+
+
+    private Coroutine playerCoroutine;
+    private float currentRadiationLevel = 0f;
+    private GameObject currentPlayerGameObject = null;
 
     private void Start()
     {
@@ -46,11 +51,12 @@ public class Radiation : MonoBehaviour
         {
             case GlobalFields.playerTag:
                 {
-                    timeFromLastRadiationDamage += Time.deltaTime;
-                    if (timeFromLastRadiationDamage < timeBeforeRadiationDamage) return;
-                    else timeFromLastRadiationDamage = 0f;
-                    GameObject playerGameObject = collision.gameObject;
-                    Vector3 direction = playerGameObject.transform.position - transform.position;
+                    timeFromLastRadiationCount += Time.deltaTime;
+                    if (timeFromLastRadiationCount < timeBeforeRadiationCount) return;
+                    else timeFromLastRadiationCount = 0f;
+                    if (currentPlayerGameObject == null)
+                        currentPlayerGameObject = collision.gameObject;
+                    Vector3 direction = currentPlayerGameObject.transform.position - transform.position;
                     RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, circleColliderRadius);
                     Debug.DrawRay(transform.position, direction);
                     int hitsCount = 0; // ���������� ����������� �� �������
@@ -74,7 +80,7 @@ public class Radiation : MonoBehaviour
                             Debug.DrawRay(hit.point, direction, Color.red, 6f);
                             for (float a = 0f; a <= 1f; a+=0.05f)
                             {
-                                Vector2 vector = Vector2.Lerp(hit.point, playerGameObject.transform.position, a);
+                                Vector2 vector = Vector2.Lerp(hit.point, currentPlayerGameObject.transform.position, a);
                                 //hit.normal.Set(hit.normal.x + deltaX, hit.normal.y + deltaY);
                                 hitPosition.x = vector.x;
                                 hitPosition.y = vector.y;
@@ -106,10 +112,11 @@ public class Radiation : MonoBehaviour
                     Debug.Log($"{hitsCount}, {distance}, {deltaRadiation}, {radiationForPlayer}");
                     // � �������� ����� ���� ����� �������������
 
-                    Player entity = playerGameObject.GetComponent<Player>();
+                    currentRadiationLevel = radiationForPlayer;
+                    /*Player entity = playerGameObject.GetComponent<Player>();
                     //entity.RadiationLevel += radiationForPlayer;
                     entity.AddRadiation(radiationForPlayer);
-                    entity.isInRadiation = true;
+                    entity.isInRadiation = true;*/
                     break;
                 }
         }
@@ -118,7 +125,7 @@ public class Radiation : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!haveRadiation) return;
-        if (!(collision is CapsuleCollider2D)) return;
+        //if (!(collision is CapsuleCollider2D)) return;
         switch (collision.gameObject.tag)
         {
             case GlobalFields.vrudniTag:
@@ -132,6 +139,9 @@ public class Radiation : MonoBehaviour
                     }
                     break;
                 }
+            case GlobalFields.playerTag:
+                playerCoroutine ??= StartCoroutine(StartRadiation());
+                break;
         }
     }
 
@@ -154,11 +164,38 @@ public class Radiation : MonoBehaviour
                 }
                 break;
             case GlobalFields.playerTag:
+                if (playerCoroutine != null)
+                {
+                    StopCoroutine(playerCoroutine);
+                    playerCoroutine = null;
+                    Debug.Log("radiation is off");
+                }
                 // исправить, заменить на events
-                Player entity = collision.gameObject.GetComponent<Player>();
-                entity.isInRadiation = false;
-                StartCoroutine(entity.NullRadiationAfterSomeSeconds());
+                Player player;
+                if (currentPlayerGameObject == null)
+                {
+                    player = collision.gameObject.GetComponent<Player>();
+                }
+                else
+                {
+                    player = currentPlayerGameObject.GetComponent<Player>();
+                }
+                player.isInRadiation = false;
+                StartCoroutine(player.NullRadiationAfterSomeSeconds());
                 break;
+        }
+    }
+    
+    public IEnumerator StartRadiation()
+    {
+        Debug.Log("radiation is on");
+        Player player = currentPlayerGameObject.GetComponent<Player>();
+        while (true)
+        {
+            //entity.RadiationLevel += radiationForPlayer;
+            player.AddRadiation(currentRadiationLevel);
+            player.isInRadiation = true;
+            yield return new WaitForSeconds(1);
         }
     }
 }

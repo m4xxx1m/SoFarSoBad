@@ -823,8 +823,6 @@ GameObject:
   - component: {fileID: 6998856648432625261}
   - component: {fileID: 6998856648432625260}
   - component: {fileID: 6998856648432625256}
-  - component: {fileID: 6998856648432625257}
-  - component: {fileID: 6998856648432625258}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -933,33 +931,6 @@ MonoBehaviour:
   winMenuPanel: {fileID: 0}
   healthIndicator: {fileID: 6998856648632679203}
   radiationIndicator: {fileID: 6998856648444581990}
---- !u!114 &6998856648432625257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6998856648432625251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f821b8486871f449b148604526f321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gearsToWin: 15
-  textField: {fileID: 6998856648325295627}
---- !u!114 &6998856648432625258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6998856648432625251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dee80f864db407489a6f1e11ce02317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textField: {fileID: 6998856649167032484}
 --- !u!1 &6998856648444313657
 GameObject:
   m_ObjectHideFlags: 0
