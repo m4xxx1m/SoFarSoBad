@@ -5,16 +5,18 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
+[RequireComponent(typeof(Text))]
 public class GearCounter : MonoBehaviour
 {
     [SerializeField] private int gearsToWin;
-    [SerializeField] private Text textField;
+    private Text textField;
 
     private int total;
     private int collected;
 
     private void Awake()
     {
+        textField = GetComponent<Text>();
         SetCount(0);
     }
 

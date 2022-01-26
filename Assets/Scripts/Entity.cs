@@ -97,7 +97,7 @@ public class Entity : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log(gameObject.name + " is Dead");
-            gameObject.SendMessage("Death", null, SendMessageOptions.DontRequireReceiver);
+            //gameObject.SendMessage("Death", null, SendMessageOptions.DontRequireReceiver);
             Death();
         }
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 24387948629398644}
   - component: {fileID: 2649944979862677691}
-  - component: {fileID: 8812734007820934506}
+  - component: {fileID: 1361811854111551607}
   - component: {fileID: 8326529139298739800}
   - component: {fileID: 8466633467462276367}
   - component: {fileID: 5716586405723064643}
@@ -54,7 +54,7 @@ MonoBehaviour:
   speedMin: 0
   speedMax: 0.025
   damage: 1
---- !u!114 &8812734007820934506
+--- !u!114 &1361811854111551607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,18 +63,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5212148327361103084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81269fa9541a78749981e9f1bda59f49, type: 3}
+  m_Script: {fileID: 11500000, guid: 423cde39e4269ef44b9db91b5804ba01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  radiationLevel: 0
-  maxRadiationLevel: 100
-  timeForNullRadiation: 5
   isInRadiation: 0
-  floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
-  openChestTile: {fileID: 0}
-  gearsCounter: {fileID: 0}
-  pointCounter: {fileID: 0}
 --- !u!61 &8326529139298739800
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,15 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
 public class PointCounter : MonoBehaviour
 {
-    [SerializeField] private Text textField;
+    //[SerializeField]
+    private Text textField;
 
     //private int total;
     //private int collected;
 
     private void Awake()
     {
+        textField = GetComponent<Text>();
         SetCount();
     }
 

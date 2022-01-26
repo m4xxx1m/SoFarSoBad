@@ -1645,7 +1645,7 @@ GameObject:
   - component: {fileID: 1883111505}
   - component: {fileID: 1883111507}
   - component: {fileID: 1883111509}
-  - component: {fileID: 1883111508}
+  - component: {fileID: 1883111510}
   - component: {fileID: 1883111506}
   m_Layer: 8
   m_Name: Troned
@@ -1785,27 +1785,6 @@ MonoBehaviour:
   deltaTimeBetweenShooting: 1
   bullet: {fileID: 8389619249540787188, guid: f0962a81b0e0fb14cac3366c5d5c720e, type: 3}
   player: {fileID: 1031931472}
---- !u!114 &1883111508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883111502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81269fa9541a78749981e9f1bda59f49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  radiationLevel: 0
-  maxRadiationLevel: 20
-  timeForNullRadiation: 5
-  isInRadiation: 1
-  floorTile: {fileID: 11400000, guid: 88bceec284894bf44b683a806e7e639c, type: 2}
-  openChestTile: {fileID: 0}
-  gearsCounter: {fileID: 0}
-  pointCounter: {fileID: 0}
 --- !u!114 &1883111509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,6 +1804,20 @@ MonoBehaviour:
   timeBeforeRadiationDamage: 1
   BorderTilesCoeff: 3
   isCoroutineStarted: 0
+--- !u!114 &1883111510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883111502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423cde39e4269ef44b9db91b5804ba01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  isInRadiation: 1
 --- !u!1 &1939965587
 GameObject:
   m_ObjectHideFlags: 0

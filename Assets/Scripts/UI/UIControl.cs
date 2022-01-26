@@ -25,8 +25,12 @@ public class UIControl : MonoBehaviour
         }
         set
         {
-            if(value < 0 || value > 1)
-                Debug.LogError("Ну я тебя поздравляю, ты передал в healthIndicatorWidth значение больше единицы. Так делать нельзя healthIndicatorWidth должно быть % здоровья игрока в десятичной дроби.");
+            //if (value < 0.0f || value > 1.0f)
+                //Debug.LogError("пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ healthIndicatorWidth пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ healthIndicatorWidth пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ % пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.");
+            if (value < 0.0f)
+                value = 0.0f;
+            if (value > 1.0f)
+                value = 1.0f;
             float targetValue = value * healthIndicatorStartWidth;
             Rect rect = healthIndicator.rectTransform.rect;
             healthIndicator.rectTransform.sizeDelta = new Vector2(targetValue, rect.height);
@@ -40,8 +44,12 @@ public class UIControl : MonoBehaviour
         }
         set
         {
-            if (value < 0 || value > 1)
-                Debug.LogError("Ну я тебя поздравляю, ты передал в radiationIndicatorWidth значение больше единицы. Так делать нельзя radiationIndicatorWidth должно быть % здоровья игрока в десятичной дроби.");
+            //if (value < 0f || value > 1f)
+                //Debug.LogError("пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ radiationIndicatorWidth пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ radiationIndicatorWidth пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ % пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.");
+            if (value < 0f)
+                value = 0f;
+            if (value > 1f)
+                value = 1f;
             float targetValue = value * radiationIndicatorStartWidth;
             Rect rect = radiationIndicator.rectTransform.rect;
             radiationIndicator.rectTransform.sizeDelta = new Vector2(targetValue, rect.height);
