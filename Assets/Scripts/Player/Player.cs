@@ -59,15 +59,20 @@ public class Player : Entity
         }
     }
     
-    protected new void AddHealth(float _delta)
+    protected override void AddHealth(float _delta)
     {
+        if (_delta < 0f)
+        {
+            ReduceHealth(_delta);
+            return;
+        }
         base.AddHealth(_delta); 
         uiControl.healthIndicatorWidth = health / startHealth;
         SoundManager soundManager = SoundManager.getInstance();
         soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
     }
     
-    protected new void ReduceHealth(float _delta)
+    protected override void ReduceHealth(float _delta)
     {
         base.ReduceHealth(_delta);
         uiControl.healthIndicatorWidth = health / startHealth;
@@ -75,7 +80,7 @@ public class Player : Entity
         soundManager.PlaySound(soundManager.damageClip, 0.3f);
     }
 
-    protected new void Death()
+    protected override void Death()
     {
         uiControl.OpenGameOverMenu();
         Time.timeScale = 0f;
@@ -125,7 +130,7 @@ public class Player : Entity
         switch (bonusType)
         {
             case 0:
-                float health = Random.Range(-1f, 2f);
+                float health = Random.Range(-1, 3);
                 AddHealth(health);
                 break;
             case 1:
@@ -138,8 +143,6 @@ public class Player : Entity
                 Points.Counter.SetCount();
                 break;
             case 3:
-                break;
-            case 4:
                 radiationLevel = 0;
                 soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
                 break;

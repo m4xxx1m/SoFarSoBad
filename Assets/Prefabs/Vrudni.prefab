@@ -147,11 +147,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAggressive: 1
   enemyState: 0
-  speed: 0.02
+  speed: 0.025
   awaitingTimeSeconds: 2
   generatingIntervalStart: 4
   generatingIntervalEnd: 7
-  secondsBetweenShooting: 2
+  secondsBetweenShooting: 0.85
   bullet: {fileID: 8389619249540787188, guid: f0962a81b0e0fb14cac3366c5d5c720e, type: 3}
   timeToUpdatePathToPlayer: 2
 --- !u!70 &8437689559723621109
@@ -206,7 +206,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.36}
   serializedVersion: 2
-  m_Radius: 33.02
+  m_Radius: 40
 --- !u!114 &1727065893538627770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   timeForDisable: 5
   haveRadiation: 0
   circleColliderRadius: 33.02
-  deltaRadiation: 7.5
-  timeBeforeRadiationDamage: 1
+  deltaRadiation: 6
+  timeBeforeRadiationCount: 0
   BorderTilesCoeff: 3
   isCoroutineStarted: 0

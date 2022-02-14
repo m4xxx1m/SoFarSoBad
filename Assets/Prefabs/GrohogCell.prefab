@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 24387948629398644}
   - component: {fileID: 2649944979862677691}
   - component: {fileID: 1361811854111551607}
-  - component: {fileID: 81905119860115228}
   - component: {fileID: 8326529139298739800}
   - component: {fileID: 8466633467462276367}
   - component: {fileID: 5716586405723064643}
   - component: {fileID: 3126204425695709163}
   m_Layer: 8
-  m_Name: Grohog
-  m_TagString: Vrudni
+  m_Name: GrohogCell
+  m_TagString: Grohog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +45,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5212148327361103084}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f599322129f9bd4a8fc92c96fe5b243, type: 3}
   m_Name: 
@@ -54,7 +53,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speedMin: 0
   speedMax: 0.025
-  damage: 1
+  damage: 0
 --- !u!114 &1361811854111551607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,29 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423cde39e4269ef44b9db91b5804ba01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 2
   isInRadiation: 0
---- !u!114 &81905119860115228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5212148327361103084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5acb09236c1fc804aad7444854fc02a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAggressive: 1
-  enemyState: 0
-  speed: 0.02
-  awaitingTimeSeconds: 2
-  generatingIntervalStart: 4
-  generatingIntervalEnd: 7
-  secondsBetweenShooting: 1.5
-  bullet: {fileID: 8389619249540787188, guid: f0962a81b0e0fb14cac3366c5d5c720e, type: 3}
-  timeToUpdatePathToPlayer: 2
 --- !u!61 &8326529139298739800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +102,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5212148327361103084}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -151,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeForDisable: 5
   haveRadiation: 1
-  circleColliderRadius: 10
+  circleColliderRadius: 8
   deltaRadiation: 6
   timeBeforeRadiationCount: 0
   BorderTilesCoeff: 3
@@ -171,7 +149,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 8
 --- !u!1 &5955067173668892641
 GameObject:
   m_ObjectHideFlags: 0

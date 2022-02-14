@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e7b3631669a36a4d8c40fd8261badfa, type: 3}
-  m_Name: GrohogTile
+  m_Name: GrohogCellTile
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31,7 +31,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 5212148327361103084, guid: 02d772f27816be140bfe19a8af0aedbe,
+  m_InstancedGameObject: {fileID: 5212148327361103084, guid: 63aea0e065ddec2409d36c4e9e161d5e,
     type: 3}
   m_Flags: 1
   m_ColliderType: 1
