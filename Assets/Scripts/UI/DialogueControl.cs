@@ -79,7 +79,8 @@ public class DialogueControl : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetMouseButtonDown(0))
+        if(currentTextIndex < targetText.Length && (Input.GetKeyDown(KeyCode.LeftShift) || 
+            Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
         {
             currentText         = targetText;
             dialogueText.text   = currentText;
@@ -87,10 +88,9 @@ public class DialogueControl : MonoBehaviour
 
             return;
         }
-
         if(currentTextIndex >= targetText.Length)
         {
-            if(Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
             {
                 if(currentLine + 1 < lines.Length)
                 {

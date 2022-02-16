@@ -65,7 +65,12 @@ public class Bullet : MonoBehaviour
                 if (tile != null && tile.name == wallTileName)
                 {
                     tilemap.SetTile(vector, floorTile);
+                    //tilemap.CompressBounds();
                 }
+                /*if (tile != null && (tile.name == GlobalFields.gearTileName || tile.name == GlobalFields.chestTileName))
+                {
+                    return;
+                }*/
             }
         }
 

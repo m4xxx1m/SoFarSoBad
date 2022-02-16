@@ -9,6 +9,10 @@ public class BigShot : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    private float currentTBS = 0f;
+    [SerializeField] private float timeBetweenShoots = 0.2f;
+    private bool waitAfterShoot = false;
+
     private Rigidbody2D rb;
 
     private void Awake()
@@ -18,10 +22,21 @@ public class BigShot : MonoBehaviour
 
     private void Update()
     {
+        if (waitAfterShoot && currentTBS < timeBetweenShoots)
+        {
+            currentTBS += Time.deltaTime;
+            return;
+        }
+        else
+        {
+            waitAfterShoot = false;
+        }
         if (Time.timeScale > 0f)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
+                currentTBS = 0f;
+                waitAfterShoot = true;
                 SoundManager soundManager = SoundManager.getInstance();
                 soundManager.PlaySound(soundManager.shootClip, 0.2f);
                 GameObject shot = Instantiate(bullet, turret.transform.position, turret.transform.rotation);

@@ -48,6 +48,7 @@ public class NoiseMapRenderer : MonoBehaviour
                         tilemap.SetTile(new Vector3Int(x + (int)(coordinates.x / pit) - 2, y - height / 2 - tbm, -1), floorTile);
                         break;
                 }
+                
                 if (itemMap != null)
                 {
                     switch (itemMap[y, x])

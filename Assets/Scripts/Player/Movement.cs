@@ -6,8 +6,12 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed     = 7.5f;
     
-    [SerializeField] private float dashTime  = 0.25f;
-    [SerializeField] private float dashSpeed = 30.0f;
+    [SerializeField] private float dashTime  = 0.3f;
+    [SerializeField] private float dashSpeed = 20.0f;
+
+    [SerializeField] private float timeBetweenDashes = 0.3f;
+    private bool waitAfterDash = false;
+    private float waitDashTimer = 0f;
 
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer dud;
@@ -16,7 +20,7 @@ public class Movement : MonoBehaviour
     private Vector2     input;
 
     private bool        dash      = false;
-    private float       dashTimer = 0;
+    private float       dashTimer = 0f;
 
     private void Awake()
     {
@@ -36,7 +40,20 @@ public class Movement : MonoBehaviour
                 dud.flipX = input.x < 0;
             }
         }
-        
+        if (waitAfterDash)
+        {
+            dash = false;
+            waitDashTimer += Time.deltaTime;
+            if (waitDashTimer >= timeBetweenDashes)
+            {
+                waitAfterDash = false;
+                waitDashTimer = 0f;
+            }
+            else
+            {
+                return;
+            }
+        }
         //dash
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -46,8 +63,10 @@ public class Movement : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.Space))
         {
             dash = false;
+            waitAfterDash = true;
         }
     }
+
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + input.normalized * speed * Time.fixedDeltaTime);
@@ -57,7 +76,14 @@ public class Movement : MonoBehaviour
             dashTimer += Time.fixedDeltaTime;
 
             if(dashTimer < dashTime)
+            {
                 rb.MovePosition(rb.position + input.normalized * dashSpeed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                dash = false;
+                waitAfterDash = true;
+            }
         }
 
         if(MapManager.GetInstance() != null)

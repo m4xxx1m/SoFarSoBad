@@ -151,7 +151,7 @@ MonoBehaviour:
   awaitingTimeSeconds: 2
   generatingIntervalStart: 4
   generatingIntervalEnd: 7
-  secondsBetweenShooting: 0.85
+  secondsBetweenShooting: 1
   bullet: {fileID: 8389619249540787188, guid: f0962a81b0e0fb14cac3366c5d5c720e, type: 3}
   timeToUpdatePathToPlayer: 2
 --- !u!70 &8437689559723621109

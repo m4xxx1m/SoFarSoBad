@@ -119,6 +119,7 @@ MonoBehaviour:
   turret: {fileID: 6626992704108894384}
   bullet: {fileID: 1757419916442637517, guid: 4782fd42edaff534a9133bf4758fcedd, type: 3}
   animator: {fileID: 3758031035766669516}
+  timeBetweenShoots: 0.17
 --- !u!1 &6626992704108894384
 GameObject:
   m_ObjectHideFlags: 0

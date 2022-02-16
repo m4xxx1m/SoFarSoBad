@@ -474,6 +474,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2761407713032117050, guid: 05893226f9c085c4392fba2ddb92f801,
+        type: 3}
+      propertyPath: timeBetweenShoots
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5039484339209441625, guid: 05893226f9c085c4392fba2ddb92f801,
         type: 3}
       propertyPath: health
@@ -483,12 +488,12 @@ PrefabInstance:
         type: 3}
       propertyPath: gearsCounter
       value: 
-      objectReference: {fileID: 654254121}
+      objectReference: {fileID: 0}
     - target: {fileID: 5039484339209441625, guid: 05893226f9c085c4392fba2ddb92f801,
         type: 3}
       propertyPath: pointCounter
       value: 
-      objectReference: {fileID: 654254120}
+      objectReference: {fileID: 0}
     - target: {fileID: 6661920066921763143, guid: 05893226f9c085c4392fba2ddb92f801,
         type: 3}
       propertyPath: m_Name
@@ -548,6 +553,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661920066921763161, guid: 05893226f9c085c4392fba2ddb92f801,
+        type: 3}
+      propertyPath: dashTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661920066921763161, guid: 05893226f9c085c4392fba2ddb92f801,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661920066921763161, guid: 05893226f9c085c4392fba2ddb92f801,
+        type: 3}
+      propertyPath: timeBetweenDashes
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05893226f9c085c4392fba2ddb92f801, type: 3}
@@ -1042,30 +1062,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29e2f6317aa66a74fb0287d837e3c6d4, type: 3}
---- !u!114 &654254120 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6998856648432625258, guid: 29e2f6317aa66a74fb0287d837e3c6d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 654254119}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dee80f864db407489a6f1e11ce02317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &654254121 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6998856648432625257, guid: 29e2f6317aa66a74fb0287d837e3c6d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 654254119}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f821b8486871f449b148604526f321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &654254122 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6998856648432625256, guid: 29e2f6317aa66a74fb0287d837e3c6d4,
@@ -1801,7 +1797,7 @@ MonoBehaviour:
   haveRadiation: 1
   circleColliderRadius: 20.46
   deltaRadiation: 1.5
-  timeBeforeRadiationDamage: 1
+  timeBeforeRadiationCount: 0
   BorderTilesCoeff: 3
   isCoroutineStarted: 0
 --- !u!114 &1883111510

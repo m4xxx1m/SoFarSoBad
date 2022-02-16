@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeForDisable: 5
   haveRadiation: 1
-  circleColliderRadius: 8
+  circleColliderRadius: 10
   deltaRadiation: 6
   timeBeforeRadiationCount: 0
   BorderTilesCoeff: 3
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 10
 --- !u!1 &5955067173668892641
 GameObject:
   m_ObjectHideFlags: 0
