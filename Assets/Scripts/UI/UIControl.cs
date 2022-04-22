@@ -71,6 +71,11 @@ public class UIControl : MonoBehaviour
         CloseGameplayMenu();
     }
 
+    public void FreezeTime()
+    {
+        Time.timeScale = 0f;
+    }
+
     public void OpenGameplayMenu()
     {
         Time.timeScale = 1f;

@@ -50,7 +50,7 @@ public class Entity : MonoBehaviour
         {
             uiControl.OpenWinMenu();
             Time.timeScale = 0f;
-            uiControl.GoToScoretable();
+            //uiControl.GoToScoretable();
         }
         if (gameObject.tag == GlobalFields.vrudniTag)
         {

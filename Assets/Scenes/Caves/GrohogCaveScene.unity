@@ -7852,7 +7852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -8217,24 +8217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &978330718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6998856649167032474, guid: 29e2f6317aa66a74fb0287d837e3c6d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 6998856649052935876}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &978330722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978330718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dee80f864db407489a6f1e11ce02317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1022334430
 GameObject:
   m_ObjectHideFlags: 0
@@ -8330,25 +8312,6 @@ Transform:
   m_Father: {fileID: 492400187}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1278313775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6998856648325295625, guid: 29e2f6317aa66a74fb0287d837e3c6d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 6998856649052935876}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1278313779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278313775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f821b8486871f449b148604526f321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gearsToWin: 20
 --- !u!1 &1457496431
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,12 +8710,12 @@ PrefabInstance:
         type: 3}
       propertyPath: gearsCounter
       value: 
-      objectReference: {fileID: 1278313779}
+      objectReference: {fileID: 0}
     - target: {fileID: 4696817896966188590, guid: 05893226f9c085c4392fba2ddb92f801,
         type: 3}
       propertyPath: pointCounter
       value: 
-      objectReference: {fileID: 978330722}
+      objectReference: {fileID: 0}
     - target: {fileID: 5039484339209441625, guid: 05893226f9c085c4392fba2ddb92f801,
         type: 3}
       propertyPath: health

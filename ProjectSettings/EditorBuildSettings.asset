@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: a9b5360ef629be44880c106052f65d23
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Dialogues/Dialogue.unity
     guid: 6fb9e2a72af5b974fb9295813ac1d85b
@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scoretable.unity
     guid: a1b80a43b6846844e970a0795e866189
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7278076cb45a8ac44ba2ce5dc0569b39
+  - enabled: 1
+    path: Assets/Scenes/CutScenes/StartCutScene.unity
+    guid: dbfed211089e4c445a3bce88c09d1a50
+  - enabled: 1
+    path: Assets/Scenes/CutScenes/GrohogCutScene.unity
+    guid: 6b8539cacf99f7c4e946743d601f5ce3
   m_configObjects: {}

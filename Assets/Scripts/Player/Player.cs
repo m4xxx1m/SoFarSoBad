@@ -1,10 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Player : Entity
 {
+    [SerializeField] private Camera camera;
     [SerializeField] private GearCounter gearsCounter;
     [SerializeField] private PointCounter pointCounter;
     private int gearsCount = 0;
@@ -18,10 +21,20 @@ public class Player : Entity
     
     [SerializeField] private Tile floorTile;
     [SerializeField] private Tile openChestTile;
+    [SerializeField] private GameObject bonusPrefab;
+    [SerializeField] private GameObject canvas;
+
+    private Dictionary<Vector3, GameObject> bonuses;
     private string gearTileName = GlobalFields.gearTileName;
+
+    [SerializeField] private Sprite heart;
+    [SerializeField] private Sprite gear;
+    [SerializeField] private Sprite points;
+    [SerializeField] private Sprite noRadiation;
 
     private void Awake()
     {
+        bonuses = new Dictionary<Vector3, GameObject>();
         if (GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag).Length > 0)
         {
             tilemapGameObject = GameObject.FindGameObjectsWithTag(GlobalFields.tilemapTag)[0];
@@ -37,6 +50,17 @@ public class Player : Entity
         Points.Counter = pointCounter;
     }
 
+    private void Update()
+    {
+        foreach (Vector3 position in bonuses.Keys)
+        {
+            GameObject bonus = bonuses[position];
+            if (bonus != null && bonus.transform.position != position)
+            {
+                bonus.transform.position = position;
+            }
+        }
+    }
     public void AddRadiation(float radLevel)
     {
         radiationLevel += radLevel;
@@ -116,13 +140,48 @@ public class Player : Entity
                 if (tile != null && tile.name == GlobalFields.chestTileName)
                 {
                     tilemap.SetTile(vector, openChestTile);
-                    GetBonus();
+                    int bonusType = GetBonus();
+                    Vector3 position = tilemap.CellToWorld(vector);
+                    position += new Vector3(0.5f, 1.6f, 0);
+                    GameObject bonus = Instantiate(bonusPrefab, position, Quaternion.identity, canvas.transform);
+                    Image image = bonus.transform.GetChild(0).GetComponent<Image>();
+                    switch(bonusType)
+                    {
+                        case 0:
+                            {
+                                image.sprite = heart;
+                                break;
+                            }
+                        case 1:
+                            {
+                                image.sprite = gear;
+                                break;
+                            }
+                        case 2:
+                            {
+                                image.sprite = points;
+                                break;
+                            }
+                        case 3:
+                            {
+                                image.sprite = noRadiation;
+                                break;
+                            }
+                    }
+                    bonuses.Add(position, bonus);
+                    StartCoroutine(DestroyBonusAfterSomeSeconds(bonus));
                 }
             }
         }
     }
-    
-    private void GetBonus()
+
+    private IEnumerator DestroyBonusAfterSomeSeconds(GameObject bonus)
+    {
+        yield return new WaitForSeconds(4f);
+        if (bonus != null) Destroy(bonus);
+    }
+
+    private int GetBonus()
     {
         int bonusType = Random.Range(0, 4);
         Debug.Log($"Chest: {bonusType}");
@@ -147,5 +206,6 @@ public class Player : Entity
                 soundManager.PlaySound(soundManager.powerUpClip, 0.8f);
                 break;
         }
+        return bonusType;
     }
 }

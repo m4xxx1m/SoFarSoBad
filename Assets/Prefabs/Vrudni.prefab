@@ -206,7 +206,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.36}
   serializedVersion: 2
-  m_Radius: 40
+  m_Radius: 33
 --- !u!114 &1727065893538627770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeForDisable: 5
   haveRadiation: 0
-  circleColliderRadius: 33.02
+  circleColliderRadius: 33
   deltaRadiation: 6
   timeBeforeRadiationCount: 0
   BorderTilesCoeff: 3

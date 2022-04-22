@@ -371,7 +371,7 @@ public class EnemyAI : MonoBehaviour
         if (collision.gameObject.tag == GlobalFields.playerTag)
         {
             havePlayerAround = false;
-            enemyState = EnemyState.WalkingAround;
+            enemyState = EnemyState.Chill;
         }
     }
 

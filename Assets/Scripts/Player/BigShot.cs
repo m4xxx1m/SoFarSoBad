@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BigShot : MonoBehaviour
 {
-    [SerializeField] private GameObject turret;
+    [SerializeField] private GameObject turretObject;
     [SerializeField] private GameObject bullet;
 
     [SerializeField] private Animator animator;
@@ -14,6 +14,8 @@ public class BigShot : MonoBehaviour
     private bool waitAfterShoot = false;
 
     private Rigidbody2D rb;
+
+    [SerializeField] private Turret turret;
 
     private void Awake()
     {
@@ -33,7 +35,7 @@ public class BigShot : MonoBehaviour
         }
         if (Time.timeScale > 0f)
         {
-            if (Input.GetMouseButton(0))
+            if (turret.isShooting)
             {
                 currentTBS = 0f;
                 waitAfterShoot = true;
