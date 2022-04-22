@@ -112042,7 +112042,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 15
-  nextSceneName: SampleScene
+  nextSceneNames:
+  - SampleScene
+  - SampleScene
 --- !u!1 &554066837
 GameObject:
   m_ObjectHideFlags: 0
